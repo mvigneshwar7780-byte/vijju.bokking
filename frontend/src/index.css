@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #080b14;
+  --color-ink-900: #0e1220;
+  --color-ink-850: #141a2c;
+  --color-ink-800: #1b2338;
+  --color-ink-700: #2a344f;
+  --color-ink-500: #64748b;
+  --color-ink-300: #a9b4c9;
+  --color-ink-100: #e6eaf3;
+
+  --color-brand-400: #ff6a3d;
+  --color-brand-500: #f04e23;
+  --color-brand-600: #d13c14;
+
+  --color-seat-available: #2a344f;
+  --color-seat-selected: #f04e23;
+  --color-seat-held: #7c5b2e;
+  --color-seat-booked: #1b2338;
+}
+
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    @apply bg-ink-950 text-ink-100 antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  * { scrollbar-width: thin; scrollbar-color: var(--color-ink-700) transparent; }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-ink-800 bg-ink-900;
+  }
+  /* Tailwind v4 cannot @apply a custom component class, so the shared button
+     base is declared once across all three selectors rather than composed. */
+  .btn,
+  .btn-primary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5
+           text-sm font-semibold transition-colors disabled:cursor-not-allowed
+           disabled:opacity-40;
+  }
+  .btn-primary { @apply bg-brand-500 text-white hover:bg-brand-600; }
+  .btn-ghost   { @apply border border-ink-700 text-ink-100 hover:bg-ink-800; }
+  .field {
+    @apply w-full rounded-lg border border-ink-700 bg-ink-850 px-3 py-2.5 text-sm
+           text-ink-100 placeholder:text-ink-500 outline-none
+           focus:border-brand-500;
+  }
+  .label { @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-ink-300; }
+  .chip {
+    @apply inline-flex items-center rounded-md border border-ink-700 px-2 py-0.5
+           text-[11px] font-medium text-ink-300;
+  }
+}

@@ -1,0 +1,24 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+
+
+# node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
+
+# managed-database certificates and keys
+# Leading ** so this matches backend/certs/ too, not just the repo root --
+# a root-anchored pattern would silently fail to cover a key placed there.
+

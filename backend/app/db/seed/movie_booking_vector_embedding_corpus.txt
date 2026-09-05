@@ -1,0 +1,131 @@
+## Document Metadata
+Domain: Cinema Ticketing, Movie Catalog, Cinema Formats, Policies & Customer Support
+Embedding Model: all-MiniLM-L6-v2 (LanceDB RAG Pipeline)
+Last Updated: September 2026
+
+## Now Showing: Starlight Odyssey Horizon
+- Title: Starlight Odyssey: Horizon
+- Status: Now Showing
+- Genres: Sci-Fi, Space Exploration, Thriller, Adventure
+- Rating: PG-13 (Sci-Fi Action / Peril)
+- Runtime: 148 minutes
+- Formats: IMAX 3D, Dolby Cinema, 4DX, ScreenX, Standard 2D
+- Synopsis: Captain Aaron Vance leads an interstellar expedition across a spatial rift to locate a habitable exoplanet before Earth's atmospheric collapse. When their warp drive fails, the crew is stranded in a gravitational anomaly with severe time dilation.
+- Search Queries: "best sci-fi movies in IMAX", "space exploration movie", "time dilation thriller", "interstellar style movie booking"
+
+## Now Showing: Whispers of the Forgotten Manor
+- Title: Whispers of the Forgotten Manor
+- Status: Now Showing
+- Genres: Supernatural Horror, Mystery, Psychological Thriller
+- Rating: R (Terror, Violent Images)
+- Runtime: 112 minutes
+- Formats: Dolby Atmos 2D, Standard Digital 2D, D-BOX
+- Synopsis: An archivist inherits an isolated Victorian estate in Maine and catalogs antique audio recordings left behind, unlocking malevolent entities within the mansion.
+- Search Queries: "scary horror movie tonight", "haunted house thriller tickets", "supernatural mystery cinema"
+
+## Now Showing: Paws & Claws The Great Alpine Adventure
+- Title: Paws & Claws: The Great Alpine Adventure
+- Status: Now Showing
+- Genres: Animation, Family, Comedy, Adventure
+- Rating: G (Universal / All Ages)
+- Runtime: 94 minutes
+- Formats: RealD 3D, Standard Digital 2D, Kids Club Matinee
+- Synopsis: Barnaby the golden retriever and Felix the cynical cat get lost during a ski trip in the Swiss Alps and navigate mountain trails to reunite with their owner.
+- Search Queries: "kids movies this weekend", "cartoon animated family movie", "pet adventure animation"
+
+## Now Showing: Neon Vendetta
+- Title: Neon Vendetta
+- Status: Now Showing
+- Genres: Cyberpunk Action, Neo-Noir, Martial Arts, Crime
+- Rating: R (Strong Violence, Gritty Action)
+- Runtime: 126 minutes
+- Formats: IMAX 2D, 4DX, Dolby Atmos, Standard 2D
+- Synopsis: A retired cybernetic enforcer comes out of hiding in a neon-drenched metropolis to dismantle a syndicate cartel with prototype combat enhancements.
+- Search Queries: "action movie with martial arts", "cyberpunk thrillers", "john wick style cinema booking"
+
+## Now Showing: The Chefs Palette
+- Title: The Chef's Palette
+- Status: Limited Release / Art House
+- Genres: Drama, Romance, Culinary Arts
+- Rating: PG-13 (Sensuality, Mild Language)
+- Runtime: 108 minutes
+- Formats: VIP Dine-In Cinema, Standard Digital 2D
+- Synopsis: A young pastry apprentice clashes with an uncompromising Michelin-star chef in Lyon, turning rivalry into artistic collaboration and romantic tension.
+- Search Queries: "date night movie romantic drama", "indie art house movie tickets", "VIP dine in cinema experience"
+
+## Experience: IMAX with Laser and IMAX 3D
+IMAX features custom dual 4K laser projection systems delivering high sharpness, high contrast, and vivid colors on floor-to-ceiling curved screens. It includes a 12-channel acoustic sound system and up to 26% expanded aspect ratio (1.90:1 and 1.43:1). Best suited for blockbusters and space action films.
+
+## Experience: 4DX Motion and Environmental Effects
+4DX synchronizes on-screen action with motion-activated seating (heave, pitch, roll) and environmental atmospheric effects including rain, wind, fog, lightning, bubbles, vibration, and scent. Not recommended for pregnant guests, patrons with heart/back conditions, motion sickness, or children under 4.
+
+## Experience: Dolby Cinema and Dolby Atmos
+Dolby Cinema combines Dolby Vision HDR dual 4K laser projection (1,000,000:1 contrast ratio) with Dolby Atmos 3D spatial surround sound. Auditoriums are equipped with premium motorized leather power-recliner seating.
+
+## Experience: VIP Dine-In Lounge
+The VIP Dine-In Lounge offers motorized luxury recliners, personal tables, warm blankets, and in-seat waiter call buttons. The menu includes artisanal pizzas, gourmet sliders, cocktails, and desserts delivered directly to the seat.
+
+## Policy: Ticket Cancellation and Refund Schedule
+- Tier 1 (Full Refund): Cancellations made 2 or more hours prior to showtime receive a 100% refund of base ticket price to the original payment method, or a 105% CineCredits wallet refund.
+- Tier 2 (Partial Refund): Cancellations made between 30 and 119 minutes before showtime incur a 20% cancellation fee, with 80% refunded to CineCredits wallet.
+- Tier 3 (Non-Refundable): Cancellations made under 30 minutes before showtime or after show start are strictly non-refundable.
+- Non-Refundable Items: Online convenience fees, booking fees, and 3D glass charges are non-refundable.
+- Concessions: Pre-ordered food items are 100% refundable if cancelled at least 60 minutes before showtime.
+
+## Policy: Seat Exchange and Rescheduling
+- Free Seat Swaps: Seat numbers can be modified within the same screen and showtime for free up to 45 minutes before showtime via the 'My Bookings' tab.
+- Movie / Time Changes: Changing the movie title, date, theater, or showtime requires cancelling the current booking and reserving a new ticket.
+- Ticket Transfer: Digital tickets can be shared with friends or family via the 'Share Ticket' button or Apple/Google Wallet without name changes.
+
+## Policy: Digital M-Ticket and Entry Check-In
+- Paperless Entry: Show the dynamic QR code on the mobile app, SMS link, or digital wallet pass at the entrance scanner. Physical prints are not required.
+- Dynamic Security: QR codes refresh security tokens every 60 seconds; static screenshot captures are invalid at scanners.
+- Paper Stubs: Physical souvenir stubs can be printed at self-service lobby kiosks by entering the 8-character booking reference code.
+
+## Policy: Age Verification and Late Admission
+- Lap Child Policy: Children aged 24 months and under enter free on a parent's lap for G and PG movies. Children aged 3 and older require a standard Child ticket.
+- Rated R (18+) Admission: Valid government photo ID with date of birth is required. Guests under 17 must be accompanied by an adult guardian aged 21 or older.
+- Late Entry Window: Entry is allowed up to 20 minutes after published showtime. Once the feature begins, late arrivals may be seated in rear rows until scene changes.
+
+## Policy: Outside Food and Beverages
+- General Rule: Outside food, takeout meals, restaurant containers, and outside drinks are prohibited inside the cinema building.
+- Permitted Items: Baby food, infant milk formula, and medically required dietary items are permitted after brief staff inspection.
+- Water: Sealed plastic water bottles are permitted, and free filtered water refill stations are located near all lobby restrooms.
+
+## Policy: Auditorium Code of Conduct and Anti-Piracy
+- Device Etiquette: Mobile phones and smart devices must remain silent with screens dimmed throughout the presentation.
+- Anti-Piracy: Recording video or audio inside the auditorium is strictly illegal under copyright law. Auditoriums are monitored by infrared cameras, and violators will be ejected and reported to authorities.
+- Disruptions: Harassment, persistent loud talking, vaping, or smoking inside theaters results in immediate security removal without refund.
+
+## Policy: Bag Check and Security Screening
+- Security Checks: Cinema staff reserves the right to inspect backpacks, large bags, and packages prior to entry.
+- Bag Size Limit: Bags larger than 16 x 16 x 8 inches are not permitted inside auditoriums and must be stored in lobby lockers.
+- Prohibited Items: Weapons, laser pointers, pepper sprays, fireworks, professional camera tripods, and illegal substances are barred.
+
+## Policy: Accessibility and ADA Compliance
+- Accessible Seating: Dedicated wheelchair spaces and companion seats are available across all auditoriums.
+- Assistive Listening: Complimentary RF headsets are available at Guest Services for hearing-impaired visitors.
+- Closed Captioning: Personal CaptiView display units and narrative audio description headsets are provided upon request.
+- Service Animals: Certified ADA service animals are permitted; standard pets and emotional support animals are excluded.
+
+## Policy: CinePass Loyalty Membership and Discounts
+- CinePass Silver (Free): 10 points per $1 spent; free birthday regular popcorn; waived convenience fees on 4+ ticket orders.
+- CinePass Gold ($9.99/year): 15 points per $1 spent; 100% waiver on convenience fees; free popcorn/drink size upgrades; 48-hour advance booking access.
+- CinePass Unlimited ($24.99/month): 1 standard 2D ticket daily; 20% concession discount; 1 quarterly companion ticket; 3-month initial term.
+
+## Policy: Failed Payments and Double Deductions
+- Orphaned Payments: If funds are deducted from your account but no booking confirmation or QR code is generated, the system registers the transaction as unconfirmed.
+- Auto-Refund: Debited amounts are automatically refunded to the original payment source within 24 to 48 banking hours.
+- Support Escalation: If funds are unreturned after 3 business days, email support@cinemabooking.example.com with the payment reference and registered phone number.
+
+## Policy: Promo Codes and Gift Card Redemption
+- Single Code Limit: Only one promo coupon or voucher code can be used per checkout basket.
+- Gift Cards: CineGift digital and plastic cards never expire, incur no maintenance fees, and can be combined with credit cards for remaining cart balances.
+- Stacking: Promo codes cannot be applied on top of CinePass Unlimited subscription rates.
+
+## FAQ: Screening Cancellations and Technical Faults
+If a show is cancelled or interrupted for more than 15 minutes due to technical, projection, or power issues, all ticket holders automatically receive a 100% refund plus a complimentary Readmission Pass valid for 90 days.
+
+## FAQ: Arrival Times and Private Screenings
+- Arrival Time: Arrive 15 to 20 minutes before showtime (25 to 30 minutes for IMAX and 4DX weekend screenings) to ensure smooth entry and seating.
+- Private Screenings: Auditorium rentals for private groups or corporate events require a minimum 7-day advance booking via events@cinemabooking.example.com.

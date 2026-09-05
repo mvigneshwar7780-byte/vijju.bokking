@@ -46,6 +46,14 @@ if (!globalThis.crypto?.randomUUID) {
   })
 }
 
+// jsdom implements no scrolling at all -- `Element.prototype.scrollTo` is simply
+// absent, so any component that pins a list to its newest item throws on mount.
+// A no-op is the honest stand-in: there is no layout to scroll in jsdom, and
+// asserting on scroll position would be testing the stub rather than the app.
+if (typeof Element !== 'undefined' && !Element.prototype.scrollTo) {
+  Element.prototype.scrollTo = function scrollTo(): void {}
+}
+
 afterEach(() => {
   cleanup()
   globalThis.localStorage?.clear()

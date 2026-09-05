@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Catalog } from '@/api/endpoints'
 import { useSession } from '@/store/session'
+import { ChatWidget } from '@/components/ChatWidget'
 import clsx from 'clsx'
 
 function CityPicker() {
@@ -111,6 +112,8 @@ export function Layout() {
       <footer className="border-t border-ink-800 py-8 text-center text-xs text-ink-500">
         vijju.booking — a movie ticketing reference implementation. Payments are simulated.
       </footer>
+
+      <ChatWidget />
     </div>
   )
 }

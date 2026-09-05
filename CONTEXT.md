@@ -133,6 +133,7 @@ service.
 | `fnb` | food & beverage add-ons |
 | `notifications` | notification records (no delivery implemented) |
 | `analytics` | domain events |
+| `assistant` | support chat endpoint; answer engine is a stub, see section 11 |
 
 `backend/app/core/` holds config, db/engine, security, errors, logging,
 middleware, shared schemas and dependencies. **Nothing outside `core/config.py`
@@ -516,6 +517,10 @@ scope deliberately and intends to add it themselves.
 
 - `pgvector` is installed by the setup script and enabled in migration `0001`.
   **Nothing uses it.** No embedding tables, no similarity queries.
+- The **support assistant** (`modules/assistant/`) is a **shell only**: the chat
+  widget, the `POST /assistant/ask` route and the response contract are built
+  and tested; `service.ask()` is a stub returning a placeholder. Implementing it
+  is deliberately left to the owner -- nothing else needs to change when it is.
 - `anthropic` and `numpy` are in `requirements.txt`; `config.py` carries
   `anthropic_api_key` and `llm_provider` (default `"echo"`). **No code imports
   the SDK.** These are leftovers from the removed scope and could be deleted.

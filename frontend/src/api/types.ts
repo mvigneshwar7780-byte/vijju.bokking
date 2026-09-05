@@ -472,3 +472,13 @@ export interface UserAdmin {
   created_at: string
   managed_cinemas: number
 }
+
+/** A reply from the support assistant. `grounded` is false when nothing in the
+ *  knowledge base matched, so the UI can present it as a miss, not a fact. */
+export type AssistantSource = { section: string; excerpt: string }
+export type AssistantReply = {
+  answer: string
+  sources: AssistantSource[]
+  suggestions: string[]
+  grounded: boolean
+}

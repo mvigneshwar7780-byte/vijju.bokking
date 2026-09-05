@@ -20,6 +20,7 @@ from app.core.middleware import register_middleware
 import app.db.models  # noqa: F401
 
 from app.modules.admin.router import admin_router, router as operator_router
+from app.modules.assistant.router import router as assistant_router
 from app.modules.booking.router import router as booking_router
 from app.modules.catalog.router import router as catalog_router
 from app.modules.identity.router import profile_router, router as auth_router
@@ -81,6 +82,7 @@ def create_app() -> FastAPI:
     v1.include_router(profile_router)
     v1.include_router(venues_router)
     v1.include_router(catalog_router)
+    v1.include_router(assistant_router)
     v1.include_router(scheduling_router)
     v1.include_router(inventory_router)
     v1.include_router(booking_router)

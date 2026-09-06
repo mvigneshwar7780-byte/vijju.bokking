@@ -1,9 +1,11 @@
 import re
 from pathlib import Path
-
+from fastapi import FastAPI , Query
+fa = FastAPI()
 import lancedb
 import numpy as np
 import pandas as pd
+from typing import Any
 from sentence_transformers import SentenceTransformer
 BASE_DIR = Path.cwd()
 POLICY_PATH = Path("C:/Users/Admin/Documents/booking/vijju.bokking/backend/app/db/seed/movie_booking_vector_embedding_corpus.txt")
@@ -90,8 +92,9 @@ def search_policy(question: str, k: int = 3) -> pd.DataFrame:
     # LanceDB returns a distance/score column; keep the view clean for teaching.
     cols = [c for c in df.columns if c in {"section", "text", "_distance", "score"}]
     return df[cols]
-
-def pretty_print_results(question: str, k: int = 2, preview_chars: int = 500) -> None:
+@fa.get("/ask")
+#def pretty_print_results(question: str, k: int = 2, preview_chars: int = 500) -> None:
+def pretty_print_results(question: str = Query(), k: int = 2, preview_chars: int = 500) -> list[dict[str, Any]]:
     print("Question:", question)
     results = search_policy(question, k=k)
     for i, row in results.iterrows():
@@ -103,6 +106,7 @@ def pretty_print_results(question: str, k: int = 2, preview_chars: int = 500) ->
             print("Distance:", float(dist))
         print("Section:", section)
         print(text[:preview_chars])
-pretty_print_results("how can I get the refund?", k=4)
-pretty_print_results("can I bring a pet?", k=4)
-pretty_print_results("can I cancel my booking?", k=4)
+    return results.to_dict(orient="records")
+#pretty_print_results("how can I get the refund?", k=4)
+#pretty_print_results("can I bring a pet?", k=4)
+#pretty_print_results("can I cancel my booking?", k=4)

@@ -50,6 +50,14 @@ class CatalogService:
 
         if status:
             stmt = stmt.where(Movie.status == status)
+        else:
+            # `archived` means retired from the catalogue -- no showtimes, no way
+            # to book. Without this an unfiltered listing, and every keyword
+            # search, surfaced withdrawn films alongside current ones and sent
+            # customers to a detail page with nothing on it. Asking for the
+            # status explicitly still returns them, which is what the operator
+            # console needs.
+            stmt = stmt.where(Movie.status != "archived")
         if genre_slug:
             stmt = stmt.where(
                 select(Genre.id)

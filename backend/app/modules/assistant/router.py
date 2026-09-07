@@ -26,7 +26,23 @@ def ask(payload: AskRequest) -> AskResponse:
 """
 from fastapi import APIRouter
 from pydantic import BaseModel
-from .retriever import retrieve
+
+# The retriever imports lancedb + sentence-transformers, which are not in
+# requirements.txt. A plain `import` here runs while main.py is still importing
+# routers, so on a machine without those packages it raised ModuleNotFoundError
+# and NO router loaded at all -- including the catalogue. The site came up with
+# an empty movie list because the whole API was dead.
+#
+# Buying a ticket must not depend on the help centre being installed. The import
+# is attempted once and its failure remembered, so the API always boots and only
+# /assistant/ask degrades.
+try:
+    from .retriever import retrieve
+
+    _RETRIEVER_ERROR: str | None = None
+except Exception as exc:  # missing package, or a bad index path
+    retrieve = None  # type: ignore[assignment]
+    _RETRIEVER_ERROR = f"{type(exc).__name__}: {exc}"
 
 router = APIRouter(prefix="/assistant", tags=["assistant"])
 
@@ -38,6 +54,20 @@ GROUNDED_THRESHOLD = 1.20   # Raised from 0.8 to accommodate sentence-transforme
 
 @router.post("/ask")
 def ask(req: AskRequest):
+    if retrieve is None:
+        # Same response shape the widget always gets, so it renders the message
+        # in a bubble instead of showing a network error.
+        return {
+            "answer": (
+                "The help assistant is not available on this server yet. "
+                "Everything else on the site works normally."
+            ),
+            "sources": [],
+            "suggestions": [],
+            "grounded": False,
+            "detail": _RETRIEVER_ERROR,
+        }
+
     hits = retrieve(req.question, k=3)
     grounded = bool(hits) and hits[0]["distance"] < GROUNDED_THRESHOLD
 

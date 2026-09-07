@@ -60,200 +60,300 @@ CINEMA_BLUEPRINTS = [
 ]
 
 MOVIES = [
+    # ---------------------------------------------------------- now showing ---
     {
-        "title": "The Cartographer's Daughter",
-        "runtime": 132,
+        "title": "Avengers Endgame: Encore",
+        "runtime": 189,
         "certification": "UA13+",
         "status": "now_showing",
         "language": "en",
-        "genres": ["Drama", "Adventure", "Mystery"],
-        "tagline": "Every map hides the place someone did not want found.",
+        "genres": ["Action", "Adventure", "Sci-Fi"],
+        "tagline": "The end, played once more.",
         "synopsis": (
-            "When a reclusive mapmaker dies leaving behind an atlas of places that do not exist, "
-            "his estranged daughter Ilse returns to the coastal town she fled at seventeen to settle "
-            "his affairs. What begins as an inventory of paper becomes an excavation of memory: each "
-            "invented island corresponds to a year of her childhood, each phantom river to a promise "
-            "he broke. Following the atlas north into fjord country, Ilse finds a community that has "
-            "quietly organised itself around her father's fictions, and must decide whether the truth "
-            "she came for is worth the world it would dismantle. A patient, luminous drama about "
-            "inheritance, cartography, and the maps we draw to survive our parents."
-        ),
-        "rating": 8.1,
-        "attributes": {"mood": ["contemplative", "melancholy", "hopeful"], "pace": "slow", "themes": ["family", "grief", "identity"], "ending": "bittersweet"},
-    },
-    {
-        "title": "Vellore Express",
-        "runtime": 148,
-        "certification": "UA16+",
-        "status": "now_showing",
-        "language": "ta",
-        "genres": ["Action", "Thriller", "Crime"],
-        "tagline": "Eleven coaches. Four hours. One way off this train.",
-        "synopsis": (
-            "A decommissioned night train carrying a sealed evidence locker from Chennai to Vellore "
-            "becomes a moving battleground when the constable escorting it realises three of his own "
-            "unit are on the payroll of the man the evidence would convict. Shot almost entirely in "
-            "real carriages, the film unfolds in near real time across eleven coaches, each a distinct "
-            "arena with its own rules, allies and exits. Beneath the propulsive set pieces is a "
-            "sharper argument about institutional rot and the ordinary people who decide, on a "
-            "particular night, not to look away."
-        ),
-        "rating": 8.6,
-        "attributes": {"mood": ["tense", "propulsive"], "pace": "fast", "themes": ["corruption", "loyalty", "justice"], "ending": "decisive"},
-    },
-    {
-        "title": "Nimbus",
-        "runtime": 116,
-        "certification": "U",
-        "status": "now_showing",
-        "language": "en",
-        "genres": ["Animation", "Family", "Fantasy"],
-        "tagline": "Some clouds are just looking for somewhere to rain.",
-        "synopsis": (
-            "In a sky-city where every citizen is assigned a cloud at birth, a small storm cloud named "
-            "Nimbus is judged defective for raining at the wrong moments -- at goodbyes, at kindnesses, "
-            "at the exact instant someone needs to be told they matter. Exiled to the drylands below, "
-            "Nimbus meets a girl tending a garden that has not seen water in nine years. Hand-painted "
-            "in a watercolour style that lets weather behave like emotion, the film is a generous, "
-            "very funny argument that the thing you were told is wrong with you may be the only useful "
-            "thing about you."
-        ),
-        "rating": 8.9,
-        "attributes": {"mood": ["warm", "uplifting", "gentle"], "pace": "medium", "themes": ["belonging", "difference", "friendship"], "ending": "happy"},
-    },
-    {
-        "title": "Deep Field",
-        "runtime": 155,
-        "certification": "UA13+",
-        "status": "now_showing",
-        "language": "en",
-        "genres": ["Sci-Fi", "Drama", "Mystery"],
-        "tagline": "The universe answered. It just took four hundred years.",
-        "synopsis": (
-            "Dr Amara Osei spends her career pointing an array at an empty patch of sky, chasing a "
-            "signal nobody else believes in. When the reply arrives it is not a message but a "
-            "correction -- a revised value for a physical constant humanity has had wrong since Newton. "
-            "Rebuilding physics from that single number costs Amara her collaborators, her marriage "
-            "and eventually her certainty about which version of events she has actually lived. "
-            "A rigorous, cool-headed science-fiction drama that treats scientific method as narrative "
-            "structure and asks what it costs to be the person who was right too early."
+            "A remastered return to the battle that closed the Infinity Saga, re-graded for laser "
+            "projection and remixed for Atmos, with restored footage assembled from the original "
+            "production reels. Presented in IMAX 3D and 4DX at selected screens."
         ),
         "rating": 8.4,
-        "attributes": {"mood": ["cerebral", "awe", "isolating"], "pace": "slow", "themes": ["obsession", "discovery", "sacrifice"], "ending": "ambiguous"},
+        "attributes": {"mood": ["epic", "nostalgic"], "pace": "fast", "themes": ["sacrifice", "legacy", "time"], "ending": "decisive"},
     },
     {
-        "title": "Ghar Wapsi",
-        "runtime": 139,
+        "title": "Avengers: Doomsday",
+        "runtime": 174,
+        "certification": "UA13+",
+        "status": "now_showing",
+        "language": "en",
+        "genres": ["Action", "Adventure", "Sci-Fi"],
+        "tagline": "A throne above every world.",
+        "synopsis": (
+            "Doctor Doom moves against a fractured multiverse, and the surviving Avengers must "
+            "assemble across timelines that no longer agree on who they are. Directed by the Russo "
+            "brothers as the next chapter of the Multiverse Saga."
+        ),
+        "rating": 8.7,
+        "attributes": {"mood": ["tense", "epic"], "pace": "fast", "themes": ["power", "identity", "multiverse"], "ending": "open"},
+    },
+    {
+        "title": "Ramayana",
+        "runtime": 195,
         "certification": "U",
         "status": "now_showing",
         "language": "hi",
-        "genres": ["Comedy", "Drama", "Family"],
-        "tagline": "You can go home again. You just can't get any peace there.",
+        "genres": ["Action", "Adventure", "Drama"],
+        "tagline": "The oldest story, told at last in full.",
         "synopsis": (
-            "After eleven years in Toronto, Rhea returns to her family's Lucknow home for what she "
-            "insists is a two-week visit, and finds her parents have rented out her childhood bedroom, "
-            "her brother has moved his failing catering business into the courtyard, and the entire "
-            "mohalla has opinions about her unmarried status. Warm, densely populated and very funny, "
-            "the film builds from farce into something quietly serious about the arithmetic of "
-            "migration: what you gain, what you leave, and the people who kept the house standing "
-            "while you were gone."
+            "Nitesh Tiwari's large-scale mythological retelling of the Ramayana, following Rama's "
+            "exile, Sita's abduction and the war against Ravana. Mounted as the first of two parts, "
+            "with a score by Hans Zimmer and A. R. Rahman."
         ),
-        "rating": 7.8,
-        "attributes": {"mood": ["warm", "funny", "nostalgic"], "pace": "medium", "themes": ["family", "migration", "belonging"], "ending": "happy"},
+        "rating": 8.9,
+        "attributes": {"mood": ["reverent", "epic"], "pace": "medium", "themes": ["duty", "devotion", "war"], "ending": "decisive"},
     },
     {
-        "title": "The Salt Kilns",
-        "runtime": 127,
-        "certification": "A",
-        "status": "now_showing",
-        "language": "ml",
-        "genres": ["Horror", "Mystery", "Drama"],
-        "tagline": "The village kept the fires lit for a reason.",
-        "synopsis": (
-            "A structural surveyor arrives at an abandoned coastal saltworks to certify it for "
-            "demolition and finds the kilns still warm, though the village has been empty for six "
-            "years. The further she reads into the works ledger, the clearer it becomes that the "
-            "fires were maintained as an obligation rather than an industry. Slow-burning folk horror "
-            "built almost entirely from sound design and negative space, more interested in the "
-            "economics of a bargain than in the thing the bargain was made with."
-        ),
-        "rating": 7.6,
-        "attributes": {"mood": ["dread", "oppressive", "eerie"], "pace": "slow", "themes": ["folklore", "sacrifice", "isolation"], "ending": "bleak"},
-    },
-    {
-        "title": "Powerplay",
-        "runtime": 141,
-        "certification": "UA13+",
+        "title": "Chiranjeevi Hanuman: The Eternal",
+        "runtime": 142,
+        "certification": "U",
         "status": "now_showing",
         "language": "te",
-        "genres": ["Sport", "Drama", "Biography"],
-        "tagline": "Second innings are earned, not given.",
+        "genres": ["Animation", "Action", "Fantasy"],
+        "tagline": "Strength was never the gift. Faith was.",
         "synopsis": (
-            "Banned for three years over a spot-fixing allegation he has always denied, a former "
-            "state cricket captain takes the only job available to him: coaching an under-19 girls' "
-            "side in a district that has never sent a player past the state trials. The cricket is "
-            "shot with real technical seriousness -- field settings matter, the wicket changes across "
-            "sessions -- and the drama refuses easy redemption, staying interested in the harder "
-            "question of what a man owes the people he let down."
+            "An animated epic on the life of Hanuman, from the boyhood that cost him the memory of "
+            "his own power to the leap across the ocean. Hand-keyed action sequences and a devotional "
+            "score aimed squarely at a family audience."
         ),
         "rating": 8.2,
-        "attributes": {"mood": ["rousing", "determined"], "pace": "medium", "themes": ["redemption", "mentorship", "class"], "ending": "triumphant"},
+        "attributes": {"mood": ["uplifting", "reverent"], "pace": "medium", "themes": ["devotion", "courage", "humility"], "ending": "happy"},
     },
     {
-        "title": "Low Tide, Late Light",
-        "runtime": 104,
-        "certification": "UA13+",
+        "title": "Dada - The Sourav Ganguly Story",
+        "runtime": 158,
+        "certification": "U",
         "status": "now_showing",
-        "language": "kn",
-        "genres": ["Romance", "Drama"],
-        "tagline": "Two weeks, one coastline, no promises.",
+        "language": "hi",
+        "genres": ["Biography", "Drama", "Sport"],
+        "tagline": "They dropped him. He came back as captain.",
         "synopsis": (
-            "A marine biologist counting a collapsing mussel population and a session musician "
-            "avoiding a wedding he does not want share a rented house on the Karwar coast for a "
-            "fortnight. Almost nothing happens: they survey, they cook, they argue about whether "
-            "measurement is a form of hope. Shot on long lenses in available light, the film is a "
-            "study of two careful people deciding, slowly and with full information, to risk being "
-            "known."
+            "The story of Sourav Ganguly -- the early Test hundred at Lord's, the years in the "
+            "wilderness, and the captaincy that rebuilt Indian cricket's belief in itself after the "
+            "match-fixing years. A biopic about temperament as much as talent."
         ),
-        "rating": 7.9,
-        "attributes": {"mood": ["tender", "quiet", "wistful"], "pace": "slow", "themes": ["intimacy", "ecology", "choice"], "ending": "open"},
+        "rating": 8.0,
+        "attributes": {"mood": ["stirring", "defiant"], "pace": "medium", "themes": ["resilience", "leadership", "nation"], "ending": "triumphant"},
     },
     {
-        "title": "Iron Meridian",
-        "runtime": 168,
+        "title": "The Paradise",
+        "runtime": 165,
         "certification": "UA16+",
         "status": "now_showing",
-        "language": "en",
-        "genres": ["Action", "War", "Adventure"],
-        "tagline": "The line held. That was the whole plan.",
+        "language": "te",
+        "genres": ["Action", "Drama", "Crime"],
+        "tagline": "Every empire is built on somebody's ground.",
         "synopsis": (
-            "1943, a rail junction in the Caucasus that both armies need and neither can supply. "
-            "A signals officer with no combat experience inherits command of a scratch garrison of "
-            "engineers, cooks and walking wounded, and holds a position for nine days using timetables, "
-            "demolition charges and an increasingly creative relationship with the truth. Enormous in "
-            "scale but unusually specific in its tactics, the film treats logistics as heroism and "
-            "refuses to pretend that surviving and winning are the same thing."
+            "Srikanth Odela's raw, rain-soaked drama set in the settlements on a city's industrial "
+            "edge, where a young man's rise through the local order forces a reckoning with the "
+            "community that made him. Nani in a deliberately unglamorous lead turn."
         ),
-        "rating": 8.7,
-        "attributes": {"mood": ["grim", "stirring", "tense"], "pace": "medium", "themes": ["duty", "attrition", "leadership"], "ending": "costly"},
+        "rating": 8.5,
+        "attributes": {"mood": ["gritty", "intense"], "pace": "medium", "themes": ["class", "belonging", "violence"], "ending": "bittersweet"},
+    },
+
+    # ------------------------------------------------------------- upcoming ---
+    {
+        "title": "Monsoon Circuit",
+        "runtime": 137,
+        "certification": "UA16+",
+        "status": "coming_soon",
+        "language": "ta",
+        "genres": ["Action", "Thriller"],
+        "tagline": "Four days of rain. One road out.",
+        "synopsis": (
+            "A long-distance lorry driver agrees to move one unmarked crate down the ghat road during "
+            "the heaviest monsoon in forty years, and discovers by the second checkpoint that "
+            "everyone waiting for him already knows his name."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["tense", "propulsive"], "pace": "fast", "themes": ["survival", "trust"], "ending": "open"},
     },
     {
-        "title": "Paper Tigers",
-        "runtime": 121,
+        "title": "The Last Ledger",
+        "runtime": 129,
         "certification": "UA13+",
         "status": "coming_soon",
-        "language": "hi",
-        "genres": ["Comedy", "Crime"],
-        "tagline": "They were terrible at crime. They were worse at quitting.",
+        "language": "ml",
+        "genres": ["Crime", "Drama", "Mystery"],
+        "tagline": "Some books are meant to be balanced, not read.",
         "synopsis": (
-            "Three laid-off print-shop employees discover their decommissioned press is the last "
-            "machine in the state capable of reproducing a particular security watermark, and talk "
-            "themselves into exactly one job. Every subsequent decision is worse than the one before "
-            "it. A fast, dry, ensemble crime comedy about competence in the wrong domain, and the "
-            "specific dignity of people who are extremely good at an obsolete thing."
+            "A retired temple accountant is asked to audit sixty years of offerings and finds a "
+            "second set of entries in his own late father's hand. A quiet procedural about "
+            "inheritance and the arithmetic of guilt."
         ),
-        "rating": None,
-        "attributes": {"mood": ["dry", "farcical", "buoyant"], "pace": "fast", "themes": ["obsolescence", "friendship", "greed"], "ending": "unknown"},
+        "rating": 0.0,
+        "attributes": {"mood": ["contemplative", "uneasy"], "pace": "slow", "themes": ["family", "corruption", "faith"], "ending": "ambiguous"},
+    },
+    {
+        "title": "Starlight Bazaar",
+        "runtime": 148,
+        "certification": "U",
+        "status": "coming_soon",
+        "language": "hi",
+        "genres": ["Musical", "Romance", "Comedy"],
+        "tagline": "Open all night, for anyone still hoping.",
+        "synopsis": (
+            "A failing night market gets one more season when a wedding singer and a fruit-seller's "
+            "daughter agree to stage a show nobody asked for. Eleven original numbers, shot almost "
+            "entirely between midnight and dawn."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["warm", "playful"], "pace": "medium", "themes": ["community", "love", "reinvention"], "ending": "happy"},
+    },
+    {
+        "title": "Iron Coast",
+        "runtime": 161,
+        "certification": "UA16+",
+        "status": "coming_soon",
+        "language": "en",
+        "genres": ["War", "Drama"],
+        "tagline": "Hold the beach. Nothing else was ordered.",
+        "synopsis": (
+            "Two hundred men are told to hold a stretch of shingle for six hours. The relief does not "
+            "come, and the order is never rescinded. A study of obedience shot in continuous takes "
+            "on the coastline where it happened."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["bleak", "tense"], "pace": "slow", "themes": ["duty", "futility", "brotherhood"], "ending": "bleak"},
+    },
+    # --------------------------------------------------- additional catalogue ---
+    {
+        "title": "Kaveri Nights",
+        "runtime": 141, "certification": "UA13+", "status": "now_showing",
+        "language": "kn", "genres": ["Romance", "Drama", "Musical"],
+        "tagline": "The river remembers what the city forgot.",
+        "synopsis": (
+            "A Bengaluru sound engineer returns to her grandmother's village to record the last "
+            "surviving singers of a boat-song tradition, and finds the man she left behind running "
+            "the ferry. A gentle, music-soaked romance about the cost of leaving and the harder cost "
+            "of coming back."
+        ),
+        "rating": 7.8,
+        "attributes": {"mood": ["warm", "wistful"], "pace": "slow", "themes": ["home", "music", "love"], "ending": "hopeful"},
+    },
+    {
+        "title": "Nine Yards of Silence",
+        "runtime": 127, "certification": "UA16+", "status": "now_showing",
+        "language": "ta", "genres": ["Drama", "Mystery"],
+        "tagline": "She wove the whole story into it.",
+        "synopsis": (
+            "When a master weaver dies mid-commission, her apprentice discovers the unfinished sari "
+            "encodes forty years of the village's secrets in its border pattern. A quiet mystery "
+            "about craft as testimony."
+        ),
+        "rating": 8.3,
+        "attributes": {"mood": ["contemplative", "uneasy"], "pace": "slow", "themes": ["craft", "memory", "truth"], "ending": "ambiguous"},
+    },
+    {
+        "title": "Tiffin Run",
+        "runtime": 118, "certification": "U", "status": "now_showing",
+        "language": "hi", "genres": ["Comedy", "Drama", "Family"],
+        "tagline": "Two hundred thousand lunches. Zero mistakes. Until today.",
+        "synopsis": (
+            "A Mumbai dabbawala with an unbroken thirty-year delivery record misroutes a single "
+            "tiffin, and spends one increasingly farcical day chasing it across the city before the "
+            "afternoon shift ends. Warm, fast, and quietly furious about who the city runs on."
+        ),
+        "rating": 8.1,
+        "attributes": {"mood": ["playful", "warm"], "pace": "fast", "themes": ["work", "pride", "city"], "ending": "happy"},
+    },
+    {
+        "title": "The Quiet Coast",
+        "runtime": 134, "certification": "UA13+", "status": "now_showing",
+        "language": "ml", "genres": ["Thriller", "Drama"],
+        "tagline": "Nothing washes up here by accident.",
+        "synopsis": (
+            "A coastal police constable two months from retirement is handed a drowning that the "
+            "district would rather file as an accident. Shot in fishing villages during the off "
+            "season, with an ending that refuses to comfort anyone."
+        ),
+        "rating": 8.4,
+        "attributes": {"mood": ["tense", "bleak"], "pace": "medium", "themes": ["duty", "corruption", "class"], "ending": "bleak"},
+    },
+    {
+        "title": "Rocket Boys of Ward 12",
+        "runtime": 112, "certification": "U", "status": "now_showing",
+        "language": "te", "genres": ["Family", "Comedy", "Adventure"],
+        "tagline": "Aim for orbit. Settle for the water tank.",
+        "synopsis": (
+            "Four children in a Hyderabad municipal ward build a rocket from scrap to win a science "
+            "fair they were not invited to. A generous, very funny film about improvisation and the "
+            "adults who eventually get out of the way."
+        ),
+        "rating": 8.0,
+        "attributes": {"mood": ["uplifting", "playful"], "pace": "fast", "themes": ["friendship", "ingenuity", "class"], "ending": "happy"},
+    },
+    {
+        "title": "Ledger of Small Debts",
+        "runtime": 145, "certification": "UA16+", "status": "now_showing",
+        "language": "hi", "genres": ["Crime", "Thriller"],
+        "tagline": "He forgave everyone. He forgot no one.",
+        "synopsis": (
+            "A neighbourhood moneylender's death exposes a notebook of favours owed across three "
+            "decades, and everyone named in it has a reason to want the pages gone. A slow-burn "
+            "crime drama structured as a series of collections."
+        ),
+        "rating": 7.9,
+        "attributes": {"mood": ["gritty", "tense"], "pace": "medium", "themes": ["debt", "loyalty", "revenge"], "ending": "decisive"},
+    },
+    {
+        "title": "Signal Lost",
+        "runtime": 108, "certification": "UA16+", "status": "coming_soon",
+        "language": "en", "genres": ["Horror", "Mystery"],
+        "tagline": "The tower stopped transmitting in 1974. Something still answers.",
+        "synopsis": (
+            "Two engineers sent to decommission a Himalayan relay station begin receiving replies to "
+            "test broadcasts nobody else can hear. A restrained, largely diegetic horror film built "
+            "almost entirely out of sound."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["dread", "claustrophobic"], "pace": "slow", "themes": ["isolation", "sound", "madness"], "ending": "open"},
+    },
+    {
+        "title": "Second Innings",
+        "runtime": 132, "certification": "U", "status": "coming_soon",
+        "language": "hi", "genres": ["Sport", "Comedy", "Drama"],
+        "tagline": "Average age fifty-eight. Ambition unchanged.",
+        "synopsis": (
+            "A retired bank clerk assembles a veterans' cricket side from his housing society to "
+            "contest a tournament designed for men half their age. Broad, affectionate, and sharper "
+            "than it looks about what retirement takes away."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["warm", "stirring"], "pace": "medium", "themes": ["ageing", "friendship", "sport"], "ending": "triumphant"},
+    },
+    {
+        "title": "The Cartographer of Ash",
+        "runtime": 156, "certification": "UA16+", "status": "coming_soon",
+        "language": "en", "genres": ["Sci-Fi", "Drama"],
+        "tagline": "Someone has to write down what was here.",
+        "synopsis": (
+            "In the fifth year after the fires, a surveyor walks the evacuated interior mapping what "
+            "remains, and keeps meeting a woman who insists the settlements are still inhabited. A "
+            "spare, walking-paced science fiction film about record-keeping as grief."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["bleak", "contemplative"], "pace": "slow", "themes": ["loss", "memory", "duty"], "ending": "ambiguous"},
+    },
+    {
+        "title": "Marigold Circuit Court",
+        "runtime": 124, "certification": "U", "status": "coming_soon",
+        "language": "kn", "genres": ["Comedy", "Drama"],
+        "tagline": "Order in the courtyard.",
+        "synopsis": (
+            "A district judge posted to a town with no functioning courthouse holds proceedings in a "
+            "flower market, and discovers that justice conducted in public view behaves entirely "
+            "differently. A comedy with a serious spine."
+        ),
+        "rating": 0.0,
+        "attributes": {"mood": ["playful", "warm"], "pace": "medium", "themes": ["justice", "community", "bureaucracy"], "ending": "hopeful"},
     },
 ]
 

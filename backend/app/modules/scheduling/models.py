@@ -132,7 +132,21 @@ class Show(UUIDPrimaryKeyMixin, TimestampMixin, Base):
 
     __table_args__ = (
         # A screen cannot run two shows starting at the same instant...
-        UniqueConstraint("screen_id", "starts_at", name="uq_shows_screen_id_starts_at"),
+        #
+        # Partial, and that matters: an unconditional UNIQUE here let a
+        # *cancelled* show keep holding its (screen, start time) forever, so an
+        # operator who cancelled Saturday 18:00 on Screen 2 could never
+        # re-schedule that slot -- and re-seeding a retired catalogue silently
+        # produced no shows at all. It also contradicted the exclusion
+        # constraint below, which already frees a cancelled slot. Both are now
+        # scoped the same way.
+        Index(
+            "uq_shows_screen_id_starts_at",
+            "screen_id",
+            "starts_at",
+            unique=True,
+            postgresql_where=text("status <> 'cancelled'"),
+        ),
         # ...and, more importantly, cannot run two shows whose *runtimes*
         # overlap. The unique constraint above only catches identical start
         # times; a 168-minute film scheduled at 17:00 and another at 18:00 would

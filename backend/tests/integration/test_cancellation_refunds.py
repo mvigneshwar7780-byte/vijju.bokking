@@ -131,10 +131,14 @@ def test_cancelling_well_ahead_returns_the_full_ticket_value(client, confirmed_b
 
 def test_cancelling_close_to_showtime_returns_less(client, confirmed_booking) -> None:  # noqa: ANN001
     """Same booking, later cancellation, smaller refund."""
+    # Quote each booking *before* creating the next. `pick_show` is
+    # deterministic, so both bookings can land on the same show -- and moving
+    # that show to +6h for the second booking silently re-times the first.
+    # Reading the quote while the show is still positioned removes the coupling.
     far = confirmed_booking(hours_ahead=48)
-    near = confirmed_booking(hours_ahead=6)
-
     far_quote = _get(client, far)["cancellation"]
+
+    near = confirmed_booking(hours_ahead=6)
     near_quote = _get(client, near)["cancellation"]
 
     assert near_quote["refundable"] is True

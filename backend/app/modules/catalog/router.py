@@ -5,8 +5,10 @@ from __future__ import annotations
 import uuid
 
 from fastapi import APIRouter, Query, status
+from fastapi.responses import Response
 
 from app.core.deps import CurrentUser, DbSession, Pagination
+from app.modules.catalog.artwork import poster_svg
 from app.core.errors import ConflictError
 from app.core.schemas import Page
 from app.modules.catalog.models import Review
@@ -43,6 +45,29 @@ def _detail(movie) -> MovieDetailOut:  # noqa: ANN001
             )
             for c in sorted(movie.credits, key=lambda c: (c.credit_type, c.billing_order))
         ],
+    )
+
+
+@router.get("/artwork/poster.svg", include_in_schema=False)
+def artwork(
+    title: str = Query(min_length=1, max_length=120),
+    w: int = Query(400, ge=80, le=1920),
+    h: int = Query(600, ge=80, le=1920),
+) -> Response:
+    """A generated placeholder poster for a film with no artwork.
+
+    Deliberately not under `/movies/...`: that path is owned by
+    `/movies/{movie_id}`, and a literal segment declared after it would be
+    parsed as a movie id.
+
+    Cached hard because the output depends only on the query string -- the same
+    title always draws the same card, so a browser or CDN never needs to ask
+    twice.
+    """
+    return Response(
+        content=poster_svg(title, w, h),
+        media_type="image/svg+xml",
+        headers={"Cache-Control": "public, max-age=604800, immutable"},
     )
 
 

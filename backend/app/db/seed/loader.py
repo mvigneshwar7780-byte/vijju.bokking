@@ -36,6 +36,8 @@ from app.modules.identity.models import User
 from app.modules.pricing.models import Offer
 from app.modules.scheduling.models import Format, Show, ShowPrice
 from app.modules.venues.models import Cinema, City, Screen, Seat, SeatCategory
+from urllib.parse import urlencode
+import pathlib
 
 logger = get_logger(__name__)
 
@@ -51,8 +53,16 @@ CATEGORY_BY_ROW = {
     **{r: "PRIME" for r in "EFGH"},
     **{r: "RECLINER" for r in "IJ"},
 }
-SHOW_TIMES = (time(10, 15), time(13, 30), time(17, 0), time(20, 45))
+# Slots must be spaced wider than the longest film plus its turnaround, or the
+# database's overlap constraint rejects the seed. 225-minute gaps carry a
+# 195-minute epic (Ramayana) plus the 20-minute changeover with room to spare.
+# `_assert_slots_fit` below checks this instead of leaving it to a constraint
+# violation 400 rows into the insert.
+SHOW_TIMES = (time(9, 30), time(13, 15), time(17, 0), time(20, 45))
 SHOW_DAYS = 6
+
+# Trailers, cleaning and turnaround appended to every film's runtime.
+TURNAROUND_MINUTES = 20
 
 # (email, full name, role, password)
 #
@@ -312,6 +322,46 @@ def _create_seats(
 
 
 # ------------------------------------------------------------------ catalog ---
+# Artwork resolution, in two tiers.
+#
+# 1. A real poster file dropped into `frontend/public/posters/<slug>.<ext>`.
+#    Vite serves `public/` at the web root, so the file is reachable at
+#    `/posters/<slug>.<ext>` with no route, no proxying and no build step --
+#    drop a file in, re-seed, done.
+# 2. Otherwise a generated SVG card from our own API, so a film never has a
+#    broken image.
+#
+# Backdrops stay generated even when a poster exists: a 2:3 poster stretched
+# across a 16:9 hero looks worse than a plain card.
+# loader.py -> seed -> db -> app -> backend -> <repo root>
+_POSTER_DIR = pathlib.Path(__file__).resolve().parents[4] / "frontend" / "public" / "posters"
+
+# Ordered by preference. AVIF is the smallest and is supported by every browser
+# this app targets; the raster formats are the fallback for whatever is to hand.
+_POSTER_EXTENSIONS = (".avif", ".webp", ".jpg", ".jpeg", ".png")
+
+
+def _poster_file(slug: str) -> str | None:
+    """The web path of a real poster for this film, if one has been supplied."""
+    for ext in _POSTER_EXTENSIONS:
+        if (_POSTER_DIR / f"{slug}{ext}").is_file():
+            return f"/posters/{slug}{ext}"
+    return None
+
+
+def _generated_url(title: str, width: int, height: int) -> str:
+    """A drawn placeholder card, served by our own API."""
+    query = urlencode({"title": title, "w": width, "h": height})
+    return f"{settings.api_v1_prefix}/artwork/poster.svg?{query}"
+
+
+def _poster_url(title: str, width: int, height: int) -> str:
+    # Only the portrait poster has real files; the wide backdrop is always drawn.
+    if width < height and (real := _poster_file(_slug(title))) is not None:
+        return real
+    return _generated_url(title, width, height)
+
+
 def _seed_movies(
     db: Session, languages: dict[str, Language], genres: dict[str, Genre]
 ) -> list[Movie]:
@@ -336,8 +386,8 @@ def _seed_movies(
                 rating_count=RNG.randint(120, 4800) if spec["rating"] else 0,
                 popularity_score=round(RNG.uniform(20, 100), 3),
                 ai_attributes=spec["attributes"],
-                poster_url=f"https://placehold.co/400x600/1e293b/f8fafc?text={spec['title'].replace(' ', '+')}",
-                backdrop_url=f"https://placehold.co/1280x720/0f172a/f8fafc?text={spec['title'].replace(' ', '+')}",
+                poster_url=_poster_url(spec["title"], 400, 600),
+                backdrop_url=_poster_url(spec["title"], 1280, 720),
             )
             m.genres = [genres[g] for g in spec["genres"]]
             m.languages = [languages[spec["language"]]]
@@ -345,6 +395,14 @@ def _seed_movies(
             if i % 3 == 0:
                 m.languages.append(languages["hi"])
             db.add(m)
+        else:
+            # Artwork is derived from the title, so regenerating it for a film
+            # that already exists is always safe -- and necessary. Without this
+            # the seed only ever set poster_url on INSERT, so films created
+            # before the artwork source changed kept pointing at the old host
+            # for ever, and no amount of re-seeding fixed them.
+            m.poster_url = _poster_url(spec["title"], 400, 600)
+            m.backdrop_url = _poster_url(spec["title"], 1280, 720)
         out.append(m)
     db.flush()
     return out
@@ -427,6 +485,30 @@ def _seed_offers(db: Session) -> None:
 
 
 # -------------------------------------------------------------------- shows ---
+def _assert_slots_fit(showable: list) -> None:
+    """Fail early, and legibly, if a film cannot fit the slot grid.
+
+    Without this the seed inserts hundreds of rows and then dies on
+    `ExclusionViolation` naming two opaque UUIDs -- true, but it does not tell
+    you that someone added a three-hour film to a grid built for two-hour ones.
+    """
+    if len(SHOW_TIMES) < 2:
+        return
+    gap = min(
+        (datetime.combine(date.min, b) - datetime.combine(date.min, a)).total_seconds() / 60
+        for a, b in zip(SHOW_TIMES, SHOW_TIMES[1:])
+    )
+    longest = max(showable, key=lambda m: m.runtime_minutes)
+    needed = longest.runtime_minutes + TURNAROUND_MINUTES
+    if needed > gap:
+        raise ValueError(
+            f"{longest.title!r} runs {longest.runtime_minutes} min; with "
+            f"{TURNAROUND_MINUTES} min turnaround it needs {needed} min, but the "
+            f"tightest gap in SHOW_TIMES is {gap:.0f} min. Widen SHOW_TIMES in "
+            f"seed/loader.py, or drop the film."
+        )
+
+
 def _create_shows(
     db: Session,
     screens: list[Screen],
@@ -450,12 +532,22 @@ def _create_shows(
     local socket and takes minutes against a managed database.
     """
     showable = [m for m in movies if m.status == "now_showing"]
+    _assert_slots_fit(showable)
     today = date.today()
 
     # One query for what already exists, instead of one per candidate show.
+    #
+    # Cancelled shows are excluded on purpose. They still hold a (screen, time)
+    # row, but the database's own exclusion constraint is
+    # `WHERE status <> 'cancelled'` -- so Postgres will happily accept a new
+    # show in that slot. Treating a cancelled show as an occupied slot made the
+    # seed stricter than the schema and silently refused to schedule anything
+    # after a catalogue was retired: it reused the dead rows instead.
     existing: dict[tuple[uuid.UUID, datetime], Show] = {
         (show.screen_id, show.starts_at): show
-        for show in db.execute(select(Show)).scalars()
+        for show in db.execute(
+            select(Show).where(Show.status != ShowStatus.CANCELLED)
+        ).scalars()
     }
 
     cinemas = {c.id: c for c in db.execute(select(Cinema)).scalars()}
@@ -494,7 +586,7 @@ def _create_shows(
 
                 fmt = formats[_pick_format(screen.supported_formats, slot_index)]
                 # Runtime + 20 minutes of trailers and turnaround.
-                ends_at = starts_at + timedelta(minutes=movie.runtime_minutes + 20)
+                ends_at = starts_at + timedelta(minutes=movie.runtime_minutes + TURNAROUND_MINUTES)
 
                 show = Show(
                     id=_new_uuid7(),

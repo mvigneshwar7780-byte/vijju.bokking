@@ -3,6 +3,12 @@
 A movie ticket booking platform — BookMyShow-shaped — built as a reference
 implementation. FastAPI + PostgreSQL 18 + React.
 
+The **user-visible brand is `vijju.booking`** (header, tab title, footer).
+Everything internal — this directory, the Python package, the database, the
+`cineai.*` browser storage keys, the `@cineai.example` demo accounts — is still
+CineAI. That split is deliberate; the storage keys in particular are load-bearing
+and renaming them would sign out every existing session.
+
 The interesting part is not the CRUD. It is that **two people can never be sold
 the same seat**, and that is enforced by the database and proven by tests that
 fail when the guarantee is removed.
@@ -26,6 +32,9 @@ git clone <this repo> && cd cineai
 make setup     # database + role + extensions, deps, migrations, demo data
 make dev       # API on :8000, web on :5173
 ```
+
+Already pointing at a managed provider? Use `make setup-managed` instead — it
+skips role and database creation, which a managed plan will not grant you.
 
 Open <http://localhost:5173>. Sign in as `demo@cineai.example` / `demopass1`, or
 register. Payments are simulated — the payment page has a
@@ -72,8 +81,16 @@ webhook signature verification and exactly-once processing · automatic refund
 when seats cannot be delivered · background hold sweeper · structured logs with
 request ids · a one-command reproducible demo dataset.
 
-**Not built** — operator console, real payment gateway, email delivery, gate
-scanning. See [`docs/04-development-plan.md`](docs/04-development-plan.md).
+**Help assistant** — a chat widget that collapses to an icon and answers
+questions from a support knowledge base. See
+[The help assistant](#the-help-assistant) — the retrieval engine is deliberately
+left to the project owner, and the app degrades cleanly without it.
+
+**Not built** — real payment gateway, email delivery, gate scanning. The
+operator console *is* built (it was listed here as missing for a while).
+See [`docs/04-development-plan.md`](docs/04-development-plan.md), and
+[`CONTEXT.md`](CONTEXT.md) §8 for the audited list of endpoints that exist but
+have no UI reaching them.
 
 ---
 
@@ -109,6 +126,23 @@ make test-concurrency
 and once with it **off**, because the lock is a deadlock optimisation, not the
 guarantee.
 
+### The same mistake, twice, in two tables
+
+Uniqueness has to be scoped to the rows that are still *live*, or a cancellation
+poisons the slot for ever. Both of these started as unconditional constraints and
+both had to be made partial:
+
+| Index | Scope | What the unconditional version broke |
+|---|---|---|
+| `uq_booking_seats_active_show_seat` | `WHERE is_active` | A cancelled booking's seat could never be resold |
+| `uq_shows_screen_id_starts_at` | `WHERE status <> 'cancelled'` | An operator who cancelled Saturday 18:00 could never schedule that slot again (migration `0006`) |
+
+The second was worse than it sounds: it sat directly beneath an exclusion
+constraint already scoped `WHERE status <> 'cancelled'`, whose own comment
+claimed a cancellation frees the slot immediately. The schema contradicted its
+documented intent, and re-seeding a retired catalogue silently produced no shows
+at all — reusing dead rows while reporting success.
+
 ---
 
 ## Layout
@@ -119,12 +153,15 @@ cineai/
 │   ├── app/
 │   │   ├── core/            config, db, security, errors, logging, deps
 │   │   ├── modules/         identity venues catalog scheduling inventory
-│   │   │                    pricing booking payments fnb notifications analytics
+│   │   │                    pricing booking payments admin assistant
+│   │   │                    fnb notifications analytics
 │   │   ├── db/              models registry, migrations, seed
 │   │   ├── workers/         APScheduler jobs
 │   │   └── main.py          app factory
 │   └── tests/               unit · integration · concurrency
-├── frontend/src/            api · store · components · pages
+├── frontend/
+│   ├── src/                 api · store · components · pages
+│   └── public/posters/      real poster files, named <movie-slug>.<ext>
 ├── docs/                    analysis · architecture · schema · plan
 ├── scripts/setup_db.sh
 └── Makefile
@@ -144,13 +181,15 @@ keeps the codebase from turning into spaghetti.
 | [Architecture](docs/02-architecture.md) | Modules, layering, the two critical flows, the concurrency argument |
 | [Database schema](docs/03-database-schema.md) | All 32 tables, the constraints that matter, a worked pricing example |
 | [Development plan](docs/04-development-plan.md) | What is done, what is next, and the acceptance test for each phase |
+| [`CONTEXT.md`](CONTEXT.md) | Engineering hand-off: invariants, conventions, traps already paid for, open findings |
+| [`SETUP-WINDOWS.md`](SETUP-WINDOWS.md) | Running it on Windows, and what genuinely differs |
 
 ---
 
 ## Testing
 
 ```bash
-make test               # everything
+make test               # everything — 108 backend, 21 frontend
 make test-concurrency   # the seat races, verbosely
 make check              # lint + typecheck + test
 ```
@@ -182,7 +221,7 @@ token cannot keep working.)
 The new operator then opens **Console** and works down the setup:
 
 ```
-Add a cinema          name, city, address, time zone
+Add a theater         name, city, address, time zone
   └─ Seat tiers       e.g. Standard ₹180, Premium ₹300 — priced per cinema
       └─ Screen       an auditorium, and which formats it supports
           └─ Layout   rows, seat counts, aisles, wheelchair spaces
@@ -208,6 +247,89 @@ different operator from **Accounts**.
 
 ---
 
+## The help assistant
+
+A chat widget sits bottom-right on every page: an icon when idle, a panel when
+opened, with the transcript persisted so navigating away does not discard an
+answer.
+
+**The app half is finished and tested.** `POST /assistant/ask` returns four
+fields, each driving something the widget already draws:
+
+| Field | Renders as |
+|---|---|
+| `answer` | the chat bubble; newlines preserved |
+| `sources` | an expandable "N sources" disclosure; `[]` hides it |
+| `suggestions` | clickable chips that ask themselves |
+| `grounded` | `false` puts a warning border on the bubble — a miss never looks like a fact |
+
+**The answering half is deliberately the owner's.** Implementing
+`AssistantService.ask()` is the whole job; nothing else needs to change.
+
+### It must not be able to break the site
+
+The retriever imports `lancedb` and `sentence-transformers`, which are **not in
+`requirements.txt`** — they pull in PyTorch, and that is too heavy to force on
+anyone who only wants the booking platform.
+
+`main.py` imports every router at module level, so on a machine without those
+packages a plain `import` raised `ModuleNotFoundError` while routers were still
+loading and **no router mounted at all** — no `/movies`, no `/shows`, no login.
+The site rendered (Vite serves it separately) with an empty movie grid, and the
+cause was nowhere near the symptom.
+
+The import is now attempted once and its failure remembered, so the API always
+boots and only `/assistant/ask` degrades:
+
+```json
+{ "answer": "The help assistant is not available on this server yet…",
+  "grounded": false,
+  "detail": "ModuleNotFoundError: No module named 'lancedb'" }
+```
+
+Buying a ticket does not depend on the help centre being installed.
+
+### Enabling it on a machine
+
+```bash
+cd backend
+.venv/bin/pip install lancedb sentence-transformers pandas   # ~2 GB
+.venv/bin/python -m app.db.seed.ingest_help                  # builds the index
+```
+
+Then **restart the API** — uvicorn does not retry an import that already failed,
+so it keeps reporting "not available" until you do.
+
+The index is a folder on local disk (`backend/lancedb_help/`), not in Postgres.
+Your catalogue is shared between machines; the index is not, and must be built on
+each one.
+
+---
+
+## Poster artwork
+
+Artwork resolves in two tiers, so a film never shows a broken image:
+
+1. **A real file** at `frontend/public/posters/<movie-slug>.<ext>` — `.avif`,
+   `.webp`, `.jpg`, `.jpeg` or `.png`. Vite serves `public/` at the web root, so
+   it is reachable at `/posters/…` with no route and no build step. Drop a file
+   in, re-seed, done.
+2. **Otherwise a generated SVG card** from `GET /api/v1/artwork/poster.svg`,
+   drawn from the title with a colour hashed from it, so a film keeps the same
+   card across restarts.
+
+Serving that fallback ourselves rather than from a placeholder host was not
+cosmetic: on a filtered network the third-party images were blocked and every
+poster rendered blank while the API happily reported valid URLs.
+
+Two things worth knowing. Backdrops stay generated even where a poster exists — a
+2:3 poster stretched across a 16:9 hero looks worse than a plain card. And the
+seed refreshes artwork for films that **already exist**, not just on insert;
+without that, a film created before the artwork source changed would keep the old
+URL for ever and no amount of re-seeding would fix it.
+
+---
+
 ## Pricing model
 
 A movie has **no price**. There is no price column on `movies`, and there never
@@ -215,11 +337,13 @@ should be — the same film plays at three halls on the same evening for three
 different amounts:
 
 ```
-Iron Meridian — Bengaluru, 31 Aug
-   Cinepolis: Nexus Mall     from ₹135
-   INOX: Garuda Mall         from ₹180
-   PVR: Forum Mall           from ₹245
+Ramayana — Bengaluru
+   Cinepolis: Nexus Mall     from ₹100
+   INOX: Garuda Mall         from ₹135
+   PVR: Forum Mall           from ₹185
 ```
+
+(Read out of the live database, not illustrative.)
 
 Price resolves down a chain, and each link is owned by someone different:
 
@@ -313,9 +437,15 @@ connecting by IP legitimately passes and is not a valid negative test. Use
 libpq's `host` / `hostaddr` split instead: connect to the real address while
 presenting a name that is genuinely absent from the certificate.
 
-`certs/` is gitignored via `**/certs/*.pem` — note the leading `**`, because a
+`.gitignore` carries `**/certs/*.pem` — note the leading `**`, because a
 root-anchored `certs/*.pem` would not match `backend/certs/` and a private key
 dropped there would be committed.
+
+**Aiven's CA is nonetheless committed here**, force-added deliberately: it is a
+public trust anchor with no private key (`subject == issuer`, valid to 2036), and
+having it in the repo means a fresh clone gets working TLS without an out-of-band
+file copy. The ignore rule still stands for anything else — and a **private key**
+must never be added past it.
 
 ### Latency is round trips, not query time
 
@@ -367,10 +497,35 @@ so an empty file is valid. The knobs most worth turning:
 | `MAX_SEATS_PER_BOOKING` | `10` | Per-transaction cap |
 | `ENABLE_SCHEDULER` | `true` | Turn off to watch lazy expiry work without the sweeper |
 
+### `.env` is not gitignored
+
+`backend/.env` holds the database password and **is not covered by
+`.gitignore`** — a `git add -A` will commit it, and it has been committed to this
+repository's history. If that history has been pushed anywhere, treat the
+password as disclosed: rotate it in the provider console, and add
+`backend/.env` to `.gitignore` before the next commit. Removing it from past
+commits needs a history rewrite; rotating is what actually protects you.
+
+### Two dependency sets
+
+`requirements.txt` covers the booking platform. The help assistant needs three
+more — `lancedb`, `sentence-transformers`, `pandas` — kept out on purpose
+because they pull in PyTorch (~2 GB) and nothing else in the app wants it.
+Install them only on a machine where you want the assistant, and see
+[The help assistant](#the-help-assistant).
+
 ---
 
 ## Notes
 
+- **Demo showtimes expire.** The seed fills a rolling 6-day window from the day
+  it runs, so roughly a week later the site looks broken — films listed, nothing
+  bookable. It is not broken; re-run `make seed`. Worth knowing before debugging
+  a phantom.
+- **Retiring a film means `status = 'archived'`**, not deleting it. Deleting
+  cascades away shows, bookings and payments; archiving hides the title from
+  every customer listing and search while keeping the history. `?status=archived`
+  still returns them for the operator console.
 - `pgvector` is installed by the setup script and enabled in migration `0001`,
   but nothing uses it. The ground is prepared; the design is not pre-made.
 - The payment gateway is a **mock**. It signs real HMAC webhooks, dedupes

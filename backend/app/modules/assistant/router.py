@@ -26,6 +26,8 @@ def ask(payload: AskRequest) -> AskResponse:
 """
 from fastapi import APIRouter
 from pydantic import BaseModel
+from app.modules.assistant.service import build_service
+from app.modules.assistant.schemas import AskRequest, AskResponse
 
 # The retriever imports lancedb + sentence-transformers, which are not in
 # requirements.txt. A plain `import` here runs while main.py is still importing
@@ -51,6 +53,12 @@ class AskRequest(BaseModel):
 
 #GROUNDED_THRESHOLD = 0.8   # tune by printing distances for good/bad questions
 GROUNDED_THRESHOLD = 1.20   # Raised from 0.8 to accommodate sentence-transformers L2 distances
+
+router = APIRouter(prefix="/assistant", tags=["assistant"])
+
+@router.post("/ask", response_model=AskResponse)
+def ask(payload: AskRequest) -> AskResponse:
+    return build_service().ask(payload.question)
 
 @router.post("/ask")
 def ask(req: AskRequest):

@@ -26,8 +26,21 @@ transcript lives in the browser. If you want multi-turn context, add it to
 """
 
 from __future__ import annotations
+from google import genai
+from google.genai import types
+from google.genai.errors import ServerError
+try:
+    from .retriever import retrieve
+
+    _RETRIEVER_ERROR: str | None = None
+except Exception as exc:  # missing package, or a bad index path
+    retrieve = None  # type: ignore[assignment]
+    _RETRIEVER_ERROR = f"{type(exc).__name__}: {exc}"
 
 from app.modules.assistant.schemas import AskResponse
+GEMINI_API_KEY = "AQ.Ab8RN6KO7DFebiXj6b9WmuW_rTt5BKrrjruJbZkObam-eg9BVg"
+client = genai.Client(api_key=GEMINI_API_KEY)
+
 
 _NOT_WIRED = (
     "The assistant is not connected to an answer engine yet. "
@@ -54,11 +67,27 @@ class AssistantService:
             The reply to render. See the module docstring for what each field
             drives in the UI.
         """
+        hits = retrieve(question, k=3)
+        if hits or hits[0]["distance"] < 1.20:
+        
+            return AskResponse(
+                answer=_NOT_WIRED,
+                sources=[],
+                suggestions=[],
+                grounded=False,
+            )
+        context = "\n---\n".join(f"[{h['section']}]{h["text"]}" for h in hits)
+        prompt = f"Answer the question based only on this context:\n{context}\nQuestion: {question}"
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=prompt,
+            #config=types.GenerateContentConfig(system_instruction="You are an assistant. Answer the user question using ONLY the provided context. If the answer cannot be found in the context, say 'I do not have that information.'"),
+        )
         return AskResponse(
-            answer=_NOT_WIRED,
-            sources=[],
+            answer=response.text,
+            sources=[{"section": h["section"], "excerpt": h["text"][:150]} for h in hits],
             suggestions=[],
-            grounded=False,
+            grounded=True,
         )
 
 

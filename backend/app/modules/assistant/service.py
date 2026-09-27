@@ -38,7 +38,7 @@ except Exception as exc:  # missing package, or a bad index path
     _RETRIEVER_ERROR = f"{type(exc).__name__}: {exc}"
 
 from app.modules.assistant.schemas import AskResponse
-GEMINI_API_KEY = "AQ.Ab8RN6KO7DFebiXj6b9WmuW_rTt5BKrrjruJbZkObam-eg9BVg"
+GEMINI_API_KEY = "AQ.Ab8RN6K0jziso02WEgWuUde589qBAmuRlQRiABfyUf3NIju5ug"
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 
@@ -56,7 +56,7 @@ class AssistantService:
     scope or behind a cache rather than here, or every question pays for it.
     """
 
-    def ask(self, question: str) -> AskResponse:
+    def ask(self, question: str) :#-> AskResponse:
         """Answer one question.
 
         Args:
@@ -68,27 +68,30 @@ class AssistantService:
             drives in the UI.
         """
         hits = retrieve(question, k=3)
-        if hits or hits[0]["distance"] < 1.20:
+        """if not hits or hits[0]["distance"] > 1.20:
         
             return AskResponse(
                 answer=_NOT_WIRED,
                 sources=[],
                 suggestions=[],
                 grounded=False,
-            )
-        context = "\n---\n".join(f"[{h['section']}]{h["text"]}" for h in hits)
-        prompt = f"Answer the question based only on this context:\n{context}\nQuestion: {question}"
+            )"""
+        context = "\n---\n".join(f"[{h['section']}]{h['text']}" for h in hits)
+        prompt = f"Answer the question in your own words based only on this context:\n{context}\nQuestion: {question}"
         response = client.models.generate_content(
             model="gemini-3.6-flash",
             contents=prompt,
-            #config=types.GenerateContentConfig(system_instruction="You are an assistant. Answer the user question using ONLY the provided context. If the answer cannot be found in the context, say 'I do not have that information.'"),
+            config=types.GenerateContentConfig(system_instruction="You are an assistant. Answer the user question in your own words using ONLY the provided context. If the answer cannot be found in the context, say 'I do not have that information.'"),
         )
+        """print("Answer:", response.text)
         return AskResponse(
+            
             answer=response.text,
             sources=[{"section": h["section"], "excerpt": h["text"][:150]} for h in hits],
             suggestions=[],
             grounded=True,
-        )
+        )"""
+        return response.text
 
 
 def build_service() -> AssistantService:

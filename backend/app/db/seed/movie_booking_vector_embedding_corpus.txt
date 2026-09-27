@@ -1,131 +1,350 @@
 ## Document Metadata
-Domain: Cinema Ticketing, Movie Catalog, Cinema Formats, Policies & Customer Support
-Embedding Model: all-MiniLM-L6-v2 (LanceDB RAG Pipeline)
-Last Updated: September 2026
+Domain: Cinema Ticketing, Movie Catalog, Cinema Formats, Policies & Customer Support[cite: 1]
+Embedding Model: all-MiniLM-L6-v2 (LanceDB RAG Pipeline)[cite: 1]
+Last Updated: September 2026[cite: 1]
 
 ## Now Showing: Starlight Odyssey Horizon
-- Title: Starlight Odyssey: Horizon
-- Status: Now Showing
-- Genres: Sci-Fi, Space Exploration, Thriller, Adventure
-- Rating: PG-13 (Sci-Fi Action / Peril)
-- Runtime: 148 minutes
-- Formats: IMAX 3D, Dolby Cinema, 4DX, ScreenX, Standard 2D
-- Synopsis: Captain Aaron Vance leads an interstellar expedition across a spatial rift to locate a habitable exoplanet before Earth's atmospheric collapse. When their warp drive fails, the crew is stranded in a gravitational anomaly with severe time dilation.
-- Search Queries: "best sci-fi movies in IMAX", "space exploration movie", "time dilation thriller", "interstellar style movie booking"
+- Title: Starlight Odyssey: Horizon[cite: 1]
+- Status: Now Showing[cite: 1]
+- Genres: Sci-Fi, Space Exploration, Thriller, Adventure[cite: 1]
+- Rating: PG-13 (Sci-Fi Action / Peril)[cite: 1]
+- Runtime: 148 minutes[cite: 1]
+- Formats: IMAX 3D, Dolby Cinema, 4DX, ScreenX, Standard 2D[cite: 1]
+- Synopsis: Captain Aaron Vance leads an interstellar expedition across a spatial rift to locate a habitable exoplanet before Earth's atmospheric collapse. When their warp drive fails, the crew is stranded in a gravitational anomaly with severe time dilation.[cite: 1]
+- Search Queries: "best sci-fi movies in IMAX", "space exploration movie", "time dilation thriller", "interstellar style movie booking"[cite: 1]
 
 ## Now Showing: Whispers of the Forgotten Manor
-- Title: Whispers of the Forgotten Manor
-- Status: Now Showing
-- Genres: Supernatural Horror, Mystery, Psychological Thriller
-- Rating: R (Terror, Violent Images)
-- Runtime: 112 minutes
-- Formats: Dolby Atmos 2D, Standard Digital 2D, D-BOX
-- Synopsis: An archivist inherits an isolated Victorian estate in Maine and catalogs antique audio recordings left behind, unlocking malevolent entities within the mansion.
-- Search Queries: "scary horror movie tonight", "haunted house thriller tickets", "supernatural mystery cinema"
+- Title: Whispers of the Forgotten Manor[cite: 1]
+- Status: Now Showing[cite: 1]
+- Genres: Supernatural Horror, Mystery, Psychological Thriller[cite: 1]
+- Rating: R (Terror, Violent Images)[cite: 1]
+- Runtime: 112 minutes[cite: 1]
+- Formats: Dolby Atmos 2D, Standard Digital 2D, D-BOX[cite: 1]
+- Synopsis: An archivist inherits an isolated Victorian estate in Maine and catalogs antique audio recordings left behind, unlocking malevolent entities within the mansion.[cite: 1]
+- Search Queries: "scary horror movie tonight", "haunted house thriller tickets", "supernatural mystery cinema"[cite: 1]
 
 ## Now Showing: Paws & Claws The Great Alpine Adventure
-- Title: Paws & Claws: The Great Alpine Adventure
-- Status: Now Showing
-- Genres: Animation, Family, Comedy, Adventure
-- Rating: G (Universal / All Ages)
-- Runtime: 94 minutes
-- Formats: RealD 3D, Standard Digital 2D, Kids Club Matinee
-- Synopsis: Barnaby the golden retriever and Felix the cynical cat get lost during a ski trip in the Swiss Alps and navigate mountain trails to reunite with their owner.
-- Search Queries: "kids movies this weekend", "cartoon animated family movie", "pet adventure animation"
+- Title: Paws & Claws: The Great Alpine Adventure[cite: 1]
+- Status: Now Showing[cite: 1]
+- Genres: Animation, Family, Comedy, Adventure[cite: 1]
+- Rating: G (Universal / All Ages)[cite: 1]
+- Runtime: 94 minutes[cite: 1]
+- Formats: RealD 3D, Standard Digital 2D, Kids Club Matinee[cite: 1]
+- Synopsis: Barnaby the golden retriever and Felix the cynical cat get lost during a ski trip in the Swiss Alps and navigate mountain trails to reunite with their owner.[cite: 1]
+- Search Queries: "kids movies this weekend", "cartoon animated family movie", "pet adventure animation"[cite: 1]
 
 ## Now Showing: Neon Vendetta
-- Title: Neon Vendetta
-- Status: Now Showing
-- Genres: Cyberpunk Action, Neo-Noir, Martial Arts, Crime
-- Rating: R (Strong Violence, Gritty Action)
-- Runtime: 126 minutes
-- Formats: IMAX 2D, 4DX, Dolby Atmos, Standard 2D
-- Synopsis: A retired cybernetic enforcer comes out of hiding in a neon-drenched metropolis to dismantle a syndicate cartel with prototype combat enhancements.
-- Search Queries: "action movie with martial arts", "cyberpunk thrillers", "john wick style cinema booking"
+- Title: Neon Vendetta[cite: 1]
+- Status: Now Showing[cite: 1]
+- Genres: Cyberpunk Action, Neo-Noir, Martial Arts, Crime[cite: 1]
+- Rating: R (Strong Violence, Gritty Action)[cite: 1]
+- Runtime: 126 minutes[cite: 1]
+- Formats: IMAX 2D, 4DX, Dolby Atmos, Standard 2D[cite: 1]
+- Synopsis: A retired cybernetic enforcer comes out of hiding in a neon-drenched metropolis to dismantle a syndicate cartel with prototype combat enhancements.[cite: 1]
+- Search Queries: "action movie with martial arts", "cyberpunk thrillers", "john wick style cinema booking"[cite: 1]
 
 ## Now Showing: The Chefs Palette
-- Title: The Chef's Palette
-- Status: Limited Release / Art House
-- Genres: Drama, Romance, Culinary Arts
-- Rating: PG-13 (Sensuality, Mild Language)
-- Runtime: 108 minutes
-- Formats: VIP Dine-In Cinema, Standard Digital 2D
-- Synopsis: A young pastry apprentice clashes with an uncompromising Michelin-star chef in Lyon, turning rivalry into artistic collaboration and romantic tension.
-- Search Queries: "date night movie romantic drama", "indie art house movie tickets", "VIP dine in cinema experience"
+- Title: The Chef's Palette[cite: 1]
+- Status: Limited Release / Art House[cite: 1]
+- Genres: Drama, Romance, Culinary Arts[cite: 1]
+- Rating: PG-13 (Sensuality, Mild Language)[cite: 1]
+- Runtime: 108 minutes[cite: 1]
+- Formats: VIP Dine-In Cinema, Standard Digital 2D[cite: 1]
+- Synopsis: A young pastry apprentice clashes with an uncompromising Michelin-star chef in Lyon, turning rivalry into artistic collaboration and romantic tension.[cite: 1]
+- Search Queries: "date night movie romantic drama", "indie art house movie tickets", "VIP dine in cinema experience"[cite: 1]
+
+## Now Showing: Marvel Studios' Avengers Doomsday
+- Title: Marvel Studios' Avengers: Doomsday
+- Status: Advance Booking / Special Screenings
+- Genres: Superhero, Sci-Fi, Multiverse Action, Adventure
+- Rating: PG-13 (Intense Sequences of Sci-Fi Violence and Action)
+- Runtime: 165 minutes
+- Formats: IMAX 3D, Dolby Cinema, 4DX, ScreenX, Standard 2D
+- Synopsis: When an unprecedented multiversal collapse threatens reality itself, Earth's fractured defenders unite alongside cosmic allies to confront the supreme intellect and mystical mastery of Doctor Doom.
+- Search Queries: "avengers doomsday tickets", "marvel movie booking", "imax 3d superhero tickets", "robert downey jr doctor doom movie"
+
+## Now Showing: Marvel Studios' The Fantastic Four First Steps
+- Title: Marvel Studios' The Fantastic Four: First Steps
+- Status: Now Showing
+- Genres: Superhero, Retro Sci-Fi, Cosmic Adventure
+- Rating: PG-13 (Cosmic Action / Sci-Fi Peril)
+- Runtime: 132 minutes
+- Formats: IMAX 3D, Dolby Cinema, D-BOX, Standard 2D
+- Synopsis: Stationed in a vibrant 1960s retro-futuristic alternate universe, Reed Richards, Sue Storm, Johnny Storm, and Ben Grimm confront the cosmic herald Silver Surfer and the planetary devourer Galactus.
+- Search Queries: "fantastic four first steps imax", "mcu galactus tickets", "marvel cosmic adventure showtimes", "fantastic 4 movie booking"
+
+## Now Showing: The Clockwork Heist
+- Title: The Clockwork Heist
+- Status: Now Showing
+- Genres: Steampunk, Crime, Adventure, Heist
+- Rating: PG-13 (Action Violence, Thematic Elements)
+- Runtime: 121 minutes
+- Formats: Dolby Cinema, 4DX, Standard Digital 2D
+- Synopsis: In a sprawling steam-powered Victorian megalopolis, an outcast master locksmith joins an airship smuggler crew to infiltrate the imperial central reserve and steal an infinite-energy prototype.
+- Search Queries: "heist adventure movie showtimes", "steampunk action movie tickets", "crime adventure cinema booking", "4dx adventure film"
+
+## Now Showing: Echoes from the Trenches
+- Title: Echoes from the Trenches
+- Status: Now Showing
+- Genres: Historical War, Drama, Action
+- Rating: R (Graphic War Violence, Gruesome Images, Strong Language)
+- Runtime: 142 minutes
+- Formats: IMAX 2D, Dolby Atmos 2D, Standard Digital 2D
+- Synopsis: In the autumn of 1917, an allied infantry battalion trapped behind enemy lines races across no-man's-land through severe artillery bombardment and hazardous terrain to deliver game-changing intelligence.
+- Search Queries: "world war historical movie tickets", "ww1 war drama imax", "realistic military drama", "intense war movie cinema"
+
+## Now Showing: Kalki 2898 AD Part 2
+- Title: Kalki 2898 AD: Part 2
+- Status: Now Showing
+- Genres: Telugu Cinema, Mythological Sci-Fi, Dystopian Action, Epic
+- Rating: UA (Intense Fantasy Violence, Action Sequences)
+- Runtime: 178 minutes
+- Formats: IMAX 3D, Dolby Cinema, 4DX, Standard Digital 2D
+- Synopsis: Ashwatthama and the bounty hunter Bhairava continue their clash across the ruined landscape of Kasi and Shambhala, protecting the divine mother SUM-80 as Supreme Yaskin mobilizes the Complex's full mechanical military power.
+- Search Queries: "kalki 2 telugu movie tickets", "prabhas kalki part 2 imax booking", "telugu sci-fi mythological movie", "kalki 2898 ad showtimes"
+
+## Now Showing: Devara Part 1
+- Title: Devara: Part 1
+- Status: Now Showing
+- Genres: Telugu Cinema, Coastal Action Drama, Period Thriller
+- Rating: UA (Intense Bloody Violence, Severe Action)
+- Runtime: 172 minutes
+- Formats: IMAX 2D, Dolby Atmos 2D, 4DX, Standard Digital 2D
+- Synopsis: Along an isolated, rugged coastline ruled by maritime smuggling clans, a fearless seafarer defies his own brethren to eliminate weapons contraband, sparking a brutal multi-generational blood feud.
+- Search Queries: "devara telugu movie tickets", "jr ntr devara imax booking", "devara showtimes hyd", "coastal action thriller telugu"
+
+## Now Showing: Pushpa 2 The Rule
+- Title: Pushpa 2: The Rule
+- Status: Now Showing
+- Genres: Telugu Cinema, Action, Crime Drama, Mass Thriller
+- Rating: UA (Strong Violence, Raw Action, Coarse Language)
+- Runtime: 180 minutes
+- Formats: Dolby Cinema, 4DX, Standard Digital 2D, D-BOX
+- Synopsis: Having taken absolute control of the international red sandalwood smuggling syndicate, Pushpa Raj faces relentless federal crackdowns, corporate syndicates, and a bitter vengeance duel against SP Bhanwar Singh Shekhawat.
+- Search Queries: "pushpa 2 movie tickets booking", "allu arjun pushpa the rule cinema", "telugu mass action film showtimes", "pushpa 2 dolby cinema"
+
+## Now Showing: Vishwambhara
+- Title: Vishwambhara
+- Status: Now Showing
+- Genres: Telugu Cinema, Socio-Fantasy, Mythological Adventure, Action
+- Rating: UA (Fantasy Action, Peril)
+- Runtime: 154 minutes
+- Formats: IMAX 3D, Dolby Atmos 2D, Standard Digital 2D
+- Synopsis: A mortal warrior embarks on a multi-realm celestial journey through mystical dimensions to fulfill an ancient prophecy, battling mythological warlords and cosmic anomalies to safeguard Earth.
+- Search Queries: "vishwambhara movie tickets", "chiranjeevi fantasy movie imax", "telugu mythological action tickets", "vishwambhara 3d showtimes"
+
+## Upcoming: Avengers Secret Wars
+- Title: Marvel Studios' Avengers: Secret Wars
+- Status: Coming Soon / Teaser Listed
+- Genres: Superhero, Multiverse Sci-Fi, Action, Epic
+- Rating: PG-13 (Cosmic Peril, Massive Action Violence)
+- Runtime: 180 minutes (Estimated)
+- Formats: IMAX with Laser 3D, Dolby Cinema, ScreenX, 4DX, Standard 2D
+- Synopsis: In the aftermath of the multiversal incursions, heroes across fragmented alternate timelines must band together on Battleworld to face an existential threat before all realities collapse into total oblivion.
+- Search Queries: "avengers secret wars tickets", "mcu secret wars release date", "marvel battleworld movie", "avengers imax 3d booking"
+
+## Upcoming: Spider-Man Beyond the Spider-Verse
+- Title: Spider-Man: Beyond the Spider-Verse
+- Status: Coming Soon / In Production
+- Genres: Animation, Superhero, Sci-Fi, Multiverse Adventure
+- Rating: PG (Mild Action, Thematic Elements)
+- Runtime: 140 minutes (Estimated)
+- Formats: IMAX 3D, Dolby Atmos 2D, 4DX, Standard Digital 2D
+- Synopsis: Miles Morales must escape the alternate universe of Earth-42 where he became the Prowler, regroup with Gwen Stacy's Spider-Band, and stop the cosmic anomaly Spot from destroying the multiverse.
+- Search Queries: "beyond the spider-verse release date", "miles morales spiderman tickets", "spider-verse imax booking", "new spider-man animated movie"
+
+## Upcoming: Dune Part Three
+- Title: Dune: Part Three
+- Status: Coming Soon / Pre-Booking Expected
+- Genres: Sci-Fi, Political Drama, Action, Epic
+- Rating: PG-13 (Intense Sequences of Violence, Thematic Material)
+- Runtime: 165 minutes (Estimated)
+- Formats: IMAX 70mm, IMAX with Laser, Dolby Cinema, 4DX, Standard 2D
+- Synopsis: Paul Atreides navigates the brutal galactic Holy War waged in his name across the Imperium, wrestling with the heavy burdens of emperor status and the prescient doom facing Arrakis.
+- Search Queries: "dune 3 imax tickets", "dune messiah movie booking", "denis villeneuve dune 3", "dune part three showtimes"
+
+## Upcoming: The Odyssey
+- Title: The Odyssey
+- Status: Coming Soon
+- Genres: Mythological Epic, Fantasy, Action, Adventure
+- Rating: PG-13 (Fantasy Combat, Intense Peril)
+- Runtime: 155 minutes
+- Formats: IMAX 3D, Dolby Cinema, Standard Digital 2D
+- Synopsis: Following the fall of Troy, King Odysseus endures a decade-long voyage across treacherous seas, confronting monstrous sirens, the cyclops Polyphemus, and wrathful deities to return home to Ithaca.
+- Search Queries: "the odyssey movie tickets", "homer odyssey epic film", "greek mythology movie cinema", "odysseus film imax"
+
+## Upcoming: Fauzi
+- Title: Fauzi
+- Status: Coming Soon / Advance Buzz
+- Genres: Telugu Cinema, Period Military Action, Romantic Drama
+- Rating: UA (War Violence, Dramatic Intensity)
+- Runtime: 160 minutes (Estimated)
+- Formats: IMAX 2D, Dolby Cinema, 4DX, Standard Digital 2D
+- Synopsis: Set against the backdrop of an intense mid-20th-century historical war, a dedicated soldier embarks on a dangerous covert mission across borders where duty to country conflicts with an enduring love story.
+- Search Queries: "fauzi prabhas movie tickets", "hanu raghavapudi fauzi booking", "telugu period war film showtimes", "fauzi cinema release"
+
+## Upcoming: Spirit
+- Title: Spirit
+- Status: Coming Soon / In Production
+- Genres: Telugu Cinema, Neo-Noir, Crime Thriller, Intense Action
+- Rating: A (Intense Raw Violence, Strong Language)
+- Runtime: 170 minutes (Estimated)
+- Formats: IMAX 2D, Dolby Atmos 2D, D-BOX, Standard Digital 2D
+- Synopsis: A fiercely uncompromising, rogue law enforcement officer descends into the darkest corridors of the criminal underworld, unleashing ruthless justice against an entrenched syndicate.
+- Search Queries: "spirit movie tickets", "prabhas sandeep reddy vanga spirit", "spirit police thriller booking", "telugu action movie spirit"
+
+## Upcoming: Dragon
+- Title: Dragon
+- Status: Coming Soon / Pre-Production
+- Genres: Telugu Cinema, High-Octane Action, Gangster Drama, Crime
+- Rating: UA (Severe Action, Stylized Violence)
+- Runtime: 168 minutes (Estimated)
+- Formats: IMAX 2D, Dolby Cinema, 4DX, Standard Digital 2D
+- Synopsis: In a lawless industrial border territory ruled by ruthless warlords, an unstoppable enforcer rises through the ranks to establish total dominance over the underworld trade network.
+- Search Queries: "dragon movie tickets booking", "jr ntr dragon prashanth neel", "dragon telugu movie release date", "prashanth neel ntr movie showtimes"
+
+## Upcoming: Varanasi
+- Title: Varanasi
+- Status: Coming Soon / Pre-Production
+- Genres: Telugu Cinema, Globetrotting Adventure, Action, Mystery
+- Rating: UA (High-Stakes Peril, Stylized Combat)
+- Runtime: 175 minutes (Estimated)
+- Formats: IMAX with Laser 3D, Dolby Cinema, Standard Digital 2D
+- Synopsis: An intrepid explorer sets off on an international archaeological expedition spanning ancient spiritual sanctuaries and subterranean ruins, unraveling a global conspiracy buried within centuries of myth.
+- Search Queries: "ssmb29 varanasi movie tickets", "mahesh babu rajamouli movie", "varanasi cinema booking", "rajamouli next adventure movie"
 
 ## Experience: IMAX with Laser and IMAX 3D
-IMAX features custom dual 4K laser projection systems delivering high sharpness, high contrast, and vivid colors on floor-to-ceiling curved screens. It includes a 12-channel acoustic sound system and up to 26% expanded aspect ratio (1.90:1 and 1.43:1). Best suited for blockbusters and space action films.
+IMAX features custom dual 4K laser projection systems delivering high sharpness, high contrast, and vivid colors on floor-to-ceiling curved screens[cite: 1]. It includes a 12-channel acoustic sound system and up to 26% expanded aspect ratio (1.90:1 and 1.43:1)[cite: 1]. Best suited for blockbusters and space action films[cite: 1].
 
 ## Experience: 4DX Motion and Environmental Effects
-4DX synchronizes on-screen action with motion-activated seating (heave, pitch, roll) and environmental atmospheric effects including rain, wind, fog, lightning, bubbles, vibration, and scent. Not recommended for pregnant guests, patrons with heart/back conditions, motion sickness, or children under 4.
+4DX synchronizes on-screen action with motion-activated seating (heave, pitch, roll) and environmental atmospheric effects including rain, wind, fog, lightning, bubbles, vibration, and scent[cite: 1]. Not recommended for pregnant guests, patrons with heart/back conditions, motion sickness, or children under 4[cite: 1].
 
 ## Experience: Dolby Cinema and Dolby Atmos
-Dolby Cinema combines Dolby Vision HDR dual 4K laser projection (1,000,000:1 contrast ratio) with Dolby Atmos 3D spatial surround sound. Auditoriums are equipped with premium motorized leather power-recliner seating.
+Dolby Cinema combines Dolby Vision HDR dual 4K laser projection (1,000,000:1 contrast ratio) with Dolby Atmos 3D spatial surround sound[cite: 1]. Auditoriums are equipped with premium motorized leather power-recliner seating[cite: 1].
 
 ## Experience: VIP Dine-In Lounge
-The VIP Dine-In Lounge offers motorized luxury recliners, personal tables, warm blankets, and in-seat waiter call buttons. The menu includes artisanal pizzas, gourmet sliders, cocktails, and desserts delivered directly to the seat.
+The VIP Dine-In Lounge offers motorized luxury recliners, personal tables, warm blankets, and in-seat waiter call buttons[cite: 1]. The menu includes artisanal pizzas, gourmet sliders, cocktails, and desserts delivered directly to the seat[cite: 1].
 
 ## Policy: Ticket Cancellation and Refund Schedule
-- Tier 1 (Full Refund): Cancellations made 2 or more hours prior to showtime receive a 100% refund of base ticket price to the original payment method, or a 105% CineCredits wallet refund.
-- Tier 2 (Partial Refund): Cancellations made between 30 and 119 minutes before showtime incur a 20% cancellation fee, with 80% refunded to CineCredits wallet.
-- Tier 3 (Non-Refundable): Cancellations made under 30 minutes before showtime or after show start are strictly non-refundable.
-- Non-Refundable Items: Online convenience fees, booking fees, and 3D glass charges are non-refundable.
-- Concessions: Pre-ordered food items are 100% refundable if cancelled at least 60 minutes before showtime.
+- Tier 1 (Full Refund): Cancellations made 2 or more hours prior to showtime receive a 100% refund of base ticket price to the original payment method, or a 105% CineCredits wallet refund[cite: 1].
+- Tier 2 (Partial Refund): Cancellations made between 30 and 119 minutes before showtime incur a 20% cancellation fee, with 80% refunded to CineCredits wallet[cite: 1].
+- Tier 3 (Non-Refundable): Cancellations made under 30 minutes before showtime or after show start are strictly non-refundable[cite: 1].
+- 
+- Non-Refundable Items: Online convenience fees, booking fees, and 3D glass charges are non-refundable[cite: 1].
+- Concessions: Pre-ordered food items are 100% refundable if cancelled at least 60 minutes before showtime[cite: 1].
 
 ## Policy: Seat Exchange and Rescheduling
-- Free Seat Swaps: Seat numbers can be modified within the same screen and showtime for free up to 45 minutes before showtime via the 'My Bookings' tab.
-- Movie / Time Changes: Changing the movie title, date, theater, or showtime requires cancelling the current booking and reserving a new ticket.
-- Ticket Transfer: Digital tickets can be shared with friends or family via the 'Share Ticket' button or Apple/Google Wallet without name changes.
+- Free Seat Swaps: Seat numbers can be modified within the same screen and showtime for free up to 45 minutes before showtime via the 'My Bookings' tab[cite: 1].
+- Movie / Time Changes: Changing the movie title, date, theater, or showtime requires cancelling the current booking and reserving a new ticket[cite: 1].
+- Ticket Transfer: Digital tickets can be shared with friends or family via the 'Share Ticket' button or Apple/Google Wallet without name changes[cite: 1].
 
 ## Policy: Digital M-Ticket and Entry Check-In
-- Paperless Entry: Show the dynamic QR code on the mobile app, SMS link, or digital wallet pass at the entrance scanner. Physical prints are not required.
-- Dynamic Security: QR codes refresh security tokens every 60 seconds; static screenshot captures are invalid at scanners.
-- Paper Stubs: Physical souvenir stubs can be printed at self-service lobby kiosks by entering the 8-character booking reference code.
+- Paperless Entry: Show the dynamic QR code on the mobile app, SMS link, or digital wallet pass at the entrance scanner[cite: 1]. Physical prints are not required[cite: 1].
+- Dynamic Security: QR codes refresh security tokens every 60 seconds; static screenshot captures are invalid at scanners[cite: 1].
+- Paper Stubs: Physical souvenir stubs can be printed at self-service lobby kiosks by entering the 8-character booking reference code[cite: 1].
 
 ## Policy: Age Verification and Late Admission
-- Lap Child Policy: Children aged 24 months and under enter free on a parent's lap for G and PG movies. Children aged 3 and older require a standard Child ticket.
-- Rated R (18+) Admission: Valid government photo ID with date of birth is required. Guests under 17 must be accompanied by an adult guardian aged 21 or older.
-- Late Entry Window: Entry is allowed up to 20 minutes after published showtime. Once the feature begins, late arrivals may be seated in rear rows until scene changes.
+- Lap Child Policy: Children aged 24 months and under enter free on a parent's lap for G and PG movies[cite: 1]. Children aged 3 and older require a standard Child ticket[cite: 1].
+- Rated R (18+) Admission: Valid government photo ID with date of birth is required[cite: 1]. Guests under 17 must be accompanied by an adult guardian aged 21 or older[cite: 1].
+- Late Entry Window: Entry is allowed up to 20 minutes after published showtime[cite: 1]. Once the feature begins, late arrivals may be seated in rear rows until scene changes[cite: 1].
 
 ## Policy: Outside Food and Beverages
-- General Rule: Outside food, takeout meals, restaurant containers, and outside drinks are prohibited inside the cinema building.
-- Permitted Items: Baby food, infant milk formula, and medically required dietary items are permitted after brief staff inspection.
-- Water: Sealed plastic water bottles are permitted, and free filtered water refill stations are located near all lobby restrooms.
+- General Rule: Outside food, takeout meals, restaurant containers, and outside drinks are prohibited inside the cinema building[cite: 1].
+- Permitted Items: Baby food, infant milk formula, and medically required dietary items are permitted after brief staff inspection[cite: 1].
+- Water: Sealed plastic water bottles are permitted, and free filtered water refill stations are located near all lobby restrooms[cite: 1].
 
 ## Policy: Auditorium Code of Conduct and Anti-Piracy
-- Device Etiquette: Mobile phones and smart devices must remain silent with screens dimmed throughout the presentation.
-- Anti-Piracy: Recording video or audio inside the auditorium is strictly illegal under copyright law. Auditoriums are monitored by infrared cameras, and violators will be ejected and reported to authorities.
-- Disruptions: Harassment, persistent loud talking, vaping, or smoking inside theaters results in immediate security removal without refund.
+- Device Etiquette: Mobile phones and smart devices must remain silent with screens dimmed throughout the presentation[cite: 1].
+- Anti-Piracy: Recording video or audio inside the auditorium is strictly illegal under copyright law[cite: 1]. Auditoriums are monitored by infrared cameras, and violators will be ejected and reported to authorities[cite: 1].
+- Disruptions: Harassment, persistent loud talking, vaping, or smoking inside theaters results in immediate security removal without refund[cite: 1].
 
 ## Policy: Bag Check and Security Screening
-- Security Checks: Cinema staff reserves the right to inspect backpacks, large bags, and packages prior to entry.
-- Bag Size Limit: Bags larger than 16 x 16 x 8 inches are not permitted inside auditoriums and must be stored in lobby lockers.
-- Prohibited Items: Weapons, laser pointers, pepper sprays, fireworks, professional camera tripods, and illegal substances are barred.
+- Security Checks: Cinema staff reserves the right to inspect backpacks, large bags, and packages prior to entry[cite: 1].
+- Bag Size Limit: Bags larger than 16 x 16 x 8 inches are not permitted inside auditoriums and must be stored in lobby lockers[cite: 1].
+- Prohibited Items: Weapons, laser pointers, pepper sprays, fireworks, professional camera tripods, and illegal substances are barred[cite: 1].
 
 ## Policy: Accessibility and ADA Compliance
-- Accessible Seating: Dedicated wheelchair spaces and companion seats are available across all auditoriums.
-- Assistive Listening: Complimentary RF headsets are available at Guest Services for hearing-impaired visitors.
-- Closed Captioning: Personal CaptiView display units and narrative audio description headsets are provided upon request.
-- Service Animals: Certified ADA service animals are permitted; standard pets and emotional support animals are excluded.
+- Accessible Seating: Dedicated wheelchair spaces and companion seats are available across all auditoriums[cite: 1].
+- Assistive Listening: Complimentary RF headsets are available at Guest Services for hearing-impaired visitors[cite: 1].
+- Closed Captioning: Personal CaptiView display units and narrative audio description headsets are provided upon request[cite: 1].
+- Service Animals: Certified ADA service animals are permitted; standard pets and emotional support animals are excluded[cite: 1].
 
 ## Policy: CinePass Loyalty Membership and Discounts
-- CinePass Silver (Free): 10 points per $1 spent; free birthday regular popcorn; waived convenience fees on 4+ ticket orders.
-- CinePass Gold ($9.99/year): 15 points per $1 spent; 100% waiver on convenience fees; free popcorn/drink size upgrades; 48-hour advance booking access.
-- CinePass Unlimited ($24.99/month): 1 standard 2D ticket daily; 20% concession discount; 1 quarterly companion ticket; 3-month initial term.
+- CinePass Silver (Free): 10 points per $1 spent; free birthday regular popcorn; waived convenience fees on 4+ ticket orders[cite: 1].
+- CinePass Gold ($9.99/year): 15 points per $1 spent; 100% waiver on convenience fees; free popcorn/drink size upgrades; 48-hour advance booking access[cite: 1].
+- CinePass Unlimited ($24.99/month): 1 standard 2D ticket daily; 20% concession discount; 1 quarterly companion ticket; 3-month initial term[cite: 1].
 
 ## Policy: Failed Payments and Double Deductions
-- Orphaned Payments: If funds are deducted from your account but no booking confirmation or QR code is generated, the system registers the transaction as unconfirmed.
-- Auto-Refund: Debited amounts are automatically refunded to the original payment source within 24 to 48 banking hours.
-- Support Escalation: If funds are unreturned after 3 business days, email support@cinemabooking.example.com with the payment reference and registered phone number.
+- Orphaned Payments: If funds are deducted from your account but no booking confirmation or QR code is generated, the system registers the transaction as unconfirmed[cite: 1].
+- Auto-Refund: Debited amounts are automatically refunded to the original payment source within 24 to 48 banking hours 
+-and vignesh is an software developer
+- Support Escalation: If funds are unreturned after 3 business days, email support@cinemabooking.example.com with the payment reference and registered phone number[cite: 1].
 
 ## Policy: Promo Codes and Gift Card Redemption
-- Single Code Limit: Only one promo coupon or voucher code can be used per checkout basket.
-- Gift Cards: CineGift digital and plastic cards never expire, incur no maintenance fees, and can be combined with credit cards for remaining cart balances.
-- Stacking: Promo codes cannot be applied on top of CinePass Unlimited subscription rates.
+- Single Code Limit: Only one promo coupon or voucher code can be used per checkout basket[cite: 1].
+- Gift Cards: CineGift digital and plastic cards never expire, incur no maintenance fees, and can be combined with credit cards for remaining cart balances[cite: 1].
+- Stacking: Promo codes cannot be applied on top of CinePass Unlimited subscription rates[cite: 1].
+
+## Policy: Lost and Found Property
+- Custody Period: Unclaimed personal belongings found inside auditoriums or lobby areas are logged and held at Guest Services for a maximum of 30 days.
+- High-Value Items: Wallets, mobile devices, official identification, and jewellery are secured in the head office safe and require government ID and matching verification details to reclaim.
+- Unclaimed Property: Everyday items (such as umbrellas, glasses, hats, and jackets) unclaimed after 30 days are donated to accredited local charities.
+- Cinema Liability: The cinema accepts no responsibility for damaged, misplaced, stolen, or forgotten items inside auditoriums or common premises.
+
+## Policy: 3D Glasses Care and Replacement
+- Collection and Return: Standard reusable RealD 3D and IMAX 3D active glasses are distributed at the auditorium doorway and must be returned to collection bins immediately after the screening.
+- Damage / Non-Return Fee: A $5.00 fee per pair is charged for unreturned, broken, or scratched cinema-issued 3D glasses.
+- Personal Eyewear: Guests are permitted to bring certified personal passive 3D glasses compatible with RealD circular polarization systems without paying rental surcharges.
+- Sanitization: All cinema-provided eyewear undergoes UV-C sterilization and automated hygiene washing between sessions.
+
+## Policy: Flash Photography and Recording Gear
+- Prohibited Equipment: Monopods, tripods, external flash units, boom mics, ring lights, and gimbal stabilizers are barred from auditoriums and lobby concourses without a media pass.
+- Lobby Photography: Handheld smartphone photos and selfies are permitted in common lobby areas, photo booths, and red-carpet zones only.
+- In-Theater Restrictions: Capturing photos or short clips of the silver screen during previews or feature presentations is strictly forbidden.
+
+## Policy: Bulk Bookings and Corporate Reservations
+- Group Threshold: Orders consisting of 20 tickets or more for a single screening qualify as bulk bookings and must be requested via corporate@cinemabooking.example.com.
+- Bulk Discounts: Bookings of 30+ tickets receive a 15% discount on base admissions and 10% off pre-ordered concession combos.
+- Payment Deadline: Full advance payment via bank transfer or credit card is required at least 5 business days prior to the screening date.
+- Cancellation for Groups: Group bookings can be cancelled with an 80% refund up to 72 hours before showtime; cancellations under 72 hours are non-refundable.
+
+## Policy: Intoxication and Behavioral Removal
+- Right of Refusal: Cinema management reserves the right to deny admission or remove patrons who exhibit overt signs of alcohol or narcotic intoxication.
+- Safety Hazards: Disruptive shouting, aggressive conduct toward staff or patrons, or refusing to sit in assigned ticketed seats results in immediate escort off premises by security.
+- Refund Ineligibility: Patrons removed from the theater due to behavioral policy violations or intoxication forfeit their ticket and concession fees entirely.
+
+## Policy: F&B Allergens and Concession Preparation
+- Allergen Disclosure: Standard theater popcorn is popped in pure coconut oil and seasoned with artificial butter flavoring containing dairy derivatives and soy lecithin.
+- Cross-Contact Warning: Concession kitchens prepare peanuts, tree nuts, dairy, wheat, and gluten items; trace cross-contamination may occur across shared preparation equipment.
+- Ingredient Lists: Detailed ingredient and nutritional datasheets for all fountain syrups, hot food, and bakery snacks are available upon request at the concession counter.
 
 ## FAQ: Screening Cancellations and Technical Faults
-If a show is cancelled or interrupted for more than 15 minutes due to technical, projection, or power issues, all ticket holders automatically receive a 100% refund plus a complimentary Readmission Pass valid for 90 days.
+If a show is cancelled or interrupted for more than 15 minutes due to technical, projection, or power issues, all ticket holders automatically receive a 100% refund plus a complimentary Readmission Pass valid for 90 days[cite: 1].
 
 ## FAQ: Arrival Times and Private Screenings
-- Arrival Time: Arrive 15 to 20 minutes before showtime (25 to 30 minutes for IMAX and 4DX weekend screenings) to ensure smooth entry and seating.
-- Private Screenings: Auditorium rentals for private groups or corporate events require a minimum 7-day advance booking via events@cinemabooking.example.com.
+- Arrival Time: Arrive 15 to 20 minutes before showtime (25 to 30 minutes for IMAX and 4DX weekend screenings) to ensure smooth entry and seating[cite: 1].
+- Private Screenings: Auditorium rentals for private groups or corporate events require a minimum 7-day advance booking via events@cinemabooking.example.com[cite: 1].
+
+## FAQ: Booking Confirmation, M-Tickets, and Missing SMS
+- Verification Process: If no confirmation SMS or email is received, verify your reservation directly inside the cinema app or web profile under the 'My Bookings' tab using the 8-character reference code and dynamic QR code.
+- Depleted Phone Battery: Visit the physical box office or Guest Services concierge desk with a valid government photo ID matching the booking name to verify the account and print standard paper stubs.
+
+## FAQ: Seat Upgrades, Format Surcharges, and Pricing
+- Upgrading Screen Formats: Active ticket reservations cannot be directly converted to premium formats such as IMAX, 4DX, or VIP Dine-In; the initial ticket must be cancelled under Tier 1 or Tier 2 terms and re-purchased for the desired screen.
+- Matinee Pricing Criteria: Matinee discounts apply strictly to showtimes scheduled prior to 12:00 PM local time Monday through Thursday, excluding national holidays and advance festival screenings.
+
+## FAQ: Children, Toddlers, and Rating Advisories
+- Age Restrictions: Rated R screenings mandate that all guests under 17 be accompanied by an adult guardian aged 21 or older throughout the entire movie runtime[cite: 1]. For UA-rated films, parental discretion is recommended for children under 12.
+- Booster Seats: Complimentary sanitized child booster seats are stationed near auditorium entrances and are available on a first-come, first-served basis.
+
+## FAQ: Food Allergies and Concession Pre-Orders
+- Concession Pickup: Pre-ordered snacks and beverages can be claimed by presenting the digital concession QR token at the Express Mobile Counter in the lobby, or via the in-seat service button within VIP Dine-In auditoriums.
+- Product Substitutions: Preset concession packages cannot be customized online; requests for beverage or item adjustments must be processed directly at the counter prior to order fulfillment.
+
+## FAQ: Parking Validation and Theater Accessibility
+- Parking Validation: Digital or physical cinema ticket stubs presented at Guest Services qualify guests for up to 3 hours of validated complimentary or reduced-rate parking in adjacent venue structures.
+- Accessible Companion Layout: ADA wheelchair bays are arranged along flat walkways with unobstructed angles and feature designated adjacent seating exclusively for companions.
+
+## FAQ: Lost Digital Vouchers and Expired Promo Codes
+- Promotion Code Errors: Checkout discount codes are single-use, case-sensitive, and cannot be stacked with CinePass Unlimited benefits, discounted Tuesday matinees, or advance red-carpet events[cite: 1].
+- Gift Card Validity: CineGift balances have no expiration date and incur zero upkeep fees[cite: 1]; balance discrepancies or scanning issues can be resolved via billing support using the 16-digit card number.

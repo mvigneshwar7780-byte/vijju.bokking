@@ -24,10 +24,21 @@ def ask(payload: AskRequest) -> AskResponse:
     """
 """ return build_service().ask(payload.question)
 """
+import os
 from fastapi import APIRouter
+from dotenv import load_dotenv
 from pydantic import BaseModel
 from app.modules.assistant.service import build_service
 from app.modules.assistant.schemas import AskRequest, AskResponse
+from google import genai
+from google.genai import types
+from google.genai.errors import ServerError
+load_dotenv()  # Load environment variables from .env file
+#G_API_KEY = os.getenv("GEMINI_API_KEY")
+#api_key = os.getenv("AQ.Ab8RN6K0jziso02WEgWuUde589qBAmuRlQRiABfyUf3NIju5ug")
+#client = genai.Client(api_key=G_API_KEY)
+GEMINI_API_KEY = "AQ.Ab8RN6K0jziso02WEgWuUde589qBAmuRlQRiABfyUf3NIju5ug"
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 # The retriever imports lancedb + sentence-transformers, which are not in
 # requirements.txt. A plain `import` here runs while main.py is still importing
@@ -55,13 +66,13 @@ class AskRequest(BaseModel):
 GROUNDED_THRESHOLD = 1.20   # Raised from 0.8 to accommodate sentence-transformers L2 distances
 
 router = APIRouter(prefix="/assistant", tags=["assistant"])
-
+"""
 @router.post("/ask", response_model=AskResponse)
 def ask(payload: AskRequest) -> AskResponse:
     return build_service().ask(payload.question)
-
+"""
 @router.post("/ask")
-def ask(req: AskRequest):
+def ask(req: AskRequest) :#-> AskResponse:
     if retrieve is None:
         # Same response shape the widget always gets, so it renders the message
         # in a bubble instead of showing a network error.
@@ -76,18 +87,27 @@ def ask(req: AskRequest):
             "detail": _RETRIEVER_ERROR,
         }
 
-    hits = retrieve(req.question, k=3)
+    hits = retrieve(req.question, k=5)
     grounded = bool(hits) and hits[0]["distance"] < GROUNDED_THRESHOLD
 
     if grounded:
         answer = hits[0]["text"]          # best chunk IS the answer
+        """context = "\n---\n".join(f"[{h['section']}]{h['text']}" for h in hits)
+        prompt = f"Answer the question in your own words based only on this context:\n{context}\nQuestion: {req.question}"
+        response = client.models.generate_content(
+                    model="gemini-3.6-flash",
+                    contents=prompt,
+                    config=types.GenerateContentConfig(system_instruction="You are an assistant. Answer the user question in your own words using ONLY the provided context. If the answer cannot be found in the context, say 'I do not have that information.'"),
+                )
+        answer = response.text"""
+        answer = build_service().ask(req.question)
     else:
         answer = ("I couldn't find this in our help centre. "
-                  "Try rephrasing, or contact support.")
-
+                  "Try rephrasing, or contact support.")     
+        #return build_service().ask(req.question)
     return {
-        "answer": answer,
-        "sources": [{"section": h["section"], "excerpt": h["text"][:150]} for h in hits],
-        "suggestions": [],
-        "grounded": grounded,
-    }
+            "answer": answer,
+            "sources": [{"section": h["section"], "excerpt": h["text"][:150]} for h in hits],
+            "suggestions": [],
+            "grounded": grounded,
+        }

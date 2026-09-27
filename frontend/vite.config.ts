@@ -16,8 +16,8 @@ export default defineConfig({
     // The API is proxied rather than called cross-origin, so the browser sees
     // one origin in development and CORS never enters the picture.
     proxy: {
-      '/api': { target: 'http://127.0.0.1:8000', changeOrigin: true },
-      '/health': { target: 'http://127.0.0.1:8000', changeOrigin: true },
+      '/api': { target: 'http://127.0.0.1:8080', changeOrigin: true },
+      '/health': { target: 'http://127.0.0.1:8080', changeOrigin: true },
     },
   },
 })

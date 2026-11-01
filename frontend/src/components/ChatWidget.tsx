@@ -15,6 +15,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Assistant } from '@/api/endpoints'
+import { onAssistantOpen } from '@/lib/assistant'
 import type { AssistantReply } from '@/api/types'
 
 type Turn = {
@@ -138,6 +139,18 @@ export function ChatWidget() {
       }
     },
     [pending],
+  )
+
+  // Opened from elsewhere — the help centre's "Ask the assistant" button.
+  // A pre-filled question is sent straight away rather than typed into the box,
+  // because the caller already knows what the reader wanted to know.
+  useEffect(
+    () =>
+      onAssistantOpen(({ question }) => {
+        setOpen(true)
+        if (question?.trim()) void ask(question)
+      }),
+    [ask],
   )
 
   const reset = () => setTurns([GREETING])

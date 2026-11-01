@@ -482,3 +482,19 @@ export type AssistantReply = {
   suggestions: string[]
   grounded: boolean
 }
+
+/** One rendered policy / FAQ / format explainer in the help centre. `slug` is
+ *  the anchor an assistant citation links to. */
+export type HelpSection = {
+  category: string
+  category_label: string
+  title: string
+  slug: string
+  body: string[]
+}
+export type HelpCentreData = { sections: HelpSection[]; categories: string[] }
+
+/** The formal terms document, numbering preserved. */
+export type LegalClause = { number: string; title: string; slug: string; body: string[] }
+export type LegalArticle = { number: string; title: string; slug: string; clauses: LegalClause[] }
+export type LegalDocument = { articles: LegalArticle[] }

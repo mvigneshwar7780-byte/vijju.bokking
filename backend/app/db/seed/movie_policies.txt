@@ -1,0 +1,232 @@
+1. Terms of Service
+1.1 Acceptance of Terms and Age Eligibility
+By accessing, browsing, registering for, or using [Website Name] (the "Site", "Platform", "we", "us", or "our"), you agree to be bound by these Terms of Service and all related policies incorporated by reference. If you do not agree to every provision of these Terms, you must discontinue using the Site immediately.
+You must be at least 13 years of age (or 16 in the European Economic Area and other jurisdictions where local data protection regulations require a higher age of digital consent) to create an account, publish movie reviews, curate public watchlists, or participate in platform forums. Certain films, trailers, visual assets, and discussions cataloged on the Site depict mature, graphic, or sensitive themes (such as MPA ratings PG-13, R, NC-17, or equivalent international classifications). Users, parents, and legal guardians are solely responsible for exercising discretion when navigating the Site's media database.
+
+1.2 Account Security, Identity, and Conduct
+When creating an account, you agree to provide truthful, accurate, and current information. You are solely responsible for safeguarding your authentication credentials, session tokens, and passwords, and you accept full liability for all actions performed through your account.
+You agree not to engage in any of the following prohibited behaviors:
+Deploying automated scripts, spiders, scrapers, data-mining algorithms, or bots to harvest catalog metadata, user logs, cast credits, or images without our prior written authorization.
+Circumventing, tampering with, or attempting to compromise server security, network infrastructure, rate limits, access control lists, or payment gateways.
+Registering sock-puppet, duplicate, or machine-generated accounts to manipulate aggregate film ratings, flood discussion threads, or bypass administrative suspensions.
+Reverse engineering, decompiling, or disassembling any proprietary algorithms, recommendation engines, or codebases used by the Platform.
+We reserve the right to audit accounts, suspend functionality, or terminate accounts immediately without prior notice upon finding a violation of these Terms.
+
+1.3 Intellectual Property, Media Metadata, and Trademarks
+All proprietary software, algorithms, user interfaces, branding, logos, editorial publications, visual design elements, and original database schemas are the exclusive property of [Website Name] and are protected under international copyright, trademark, and trade secret laws.
+All film titles, trade names, character likenesses, cast and crew credits, official synopses, promotional stills, high-resolution posters, and video trailers hosted, rendered, or linked on the Site are the exclusive intellectual property of their respective film studios, production companies, distributors, and copyright owners. These materials are utilized under statutory fair use doctrines, legitimate media press access kits, or via authorized metadata and media licensing agreements with upstream providers (e.g., TMDb, IMDb, studio distribution feeds).
+Nothing in these Terms grants you any right, title, or interest in or to third-party film assets, nor may you extract, bundle, resell, or distribute our aggregated movie database for commercial use.
+1.4 Video Content, Embedding, and Third-Party Links
+[Website Name] is an informational catalog, review index, and community hub. The Site does not host, upload, maintain, store, or stream full-length copyrighted audiovisual films or unauthorized video files on its servers.
+All audiovisual clips, official trailers, and promotional media displayed on the Site are embedded through authorized third-party video players (such as YouTube, Vimeo, or studio press portals) compliant with the respective host's API guidelines. The Site may also provide deep links to third-party subscription streaming services, video-on-demand retailers, and external platforms (such as Netflix, Amazon Prime Video, Apple TV, Hulu, or Disney+).
+We do not own, control, monitor, or endorse external platforms. We bear no liability for the pricing, catalog fluctuations, service uptime, terms, or data practices of any third-party streaming or distribution services.
+1.5 Disclaimer of Warranties
+The Site, its metadata catalog, user-generated reviews, community ratings, and all associated services are delivered strictly on an "as is" and "as available" basis without warranties of any kind, whether express, statutory, or implied. We expressly disclaim all warranties of merchantability, fitness for a particular purpose, title, quiet enjoyment, and non-infringement.
+We do not guarantee that:
+Movie release schedules, box office statistics, streaming availability, theatrical listings, or credit rolls are completely free from human or technical error.
+The Site will function continuously without interruptions, transmission delays, software bugs, or server downtime.
+User-generated reviews, editorial rankings, or recommendation suggestions will meet your personal viewing expectations.
+
+1.6 Limitation of Liability
+
+To the maximum extent permitted under applicable law, in no event shall [Website Name], its parent entities, subsidiaries, affiliates, officers, directors, employees, licensors, or contractors be liable for any direct, indirect, incidental, special, punitive, exemplary, or consequential damages. This includes, without limitation, loss of profits, data, goodwill, or system failures arising out of or in connection with your access to, reliance on, or inability to use the Site or its underlying movie data, regardless of legal theory and even if advised of the possibility of such damages.
+
+2. User-Generated Content and Licensing Policy
+
+2.1 User Submissions
+When you submit, publish, or upload content to the Site—including written movie reviews, star ratings, custom watchlists, lists, list descriptions, profile commentary, and forum posts ("User-Generated Content" or "UGC")—you confirm and warrant that:
+You are the sole creator and copyright owner of the text and commentary, or you have secured all necessary permissions and licenses to post it.
+Your submission does not infringe upon any third-party intellectual property, privacy, publicity, or contractual rights.
+Your submission complies with our Community Guidelines and does not contain defamatory, libelous, or unlawful material.
+
+2.2 License Grant to the Platform
+You retain ownership of the original text you write. However, by publishing UGC on [Website Name], you grant us a worldwide, non-exclusive, perpetual, irrevocable, royalty-free, transferable, and sublicensable license to use, host, store, cache, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, publicly perform, and publicly display such content in any media format and through any distribution channels now known or hereafter devised.
+This license enables us to:
+Aggregate your film ratings to compute public average community scores and global rating distributions.
+Feature your written reviews in curated editorial roundups, email newsletters, and home page highlights.
+Index your public watchlists and lists in platform search engines and personalized recommendation systems.
+Syndicate anonymized rating data and public excerpts to authorized platform partners or developer APIs.
+
+2.3 Content Moderation and Removal Rights
+We reserve the right, but do not assume the obligation, to monitor, review, screen, edit, flag, refuse to publish, or permanently delete any UGC at our sole discretion, with or without notice, if we believe the content violates these Terms, our Community Guidelines, or applicable laws, or could harm the reputation or operations of the Site.
+
+3. Privacy Policy
+
+3.1 Information We Collect
+We collect several types of information from and about users of our Site:
+A. Information You Provide Directly
+Registration Details: Username, legal name (optional), email address, country of residence, and password hash generated via secure one-way encryption.
+Profile Metadata: Avatar image, biography, social media profile links, favorite genres, favorite directors, and viewing preferences.
+Movie Logging and Activity Data: Star ratings, written reviews, watch dates, private and public watchlists, custom collections, bookmarks, and search queries entered on the Site.
+Support Inquiries: Correspondence, feedback, bug submissions, or notices submitted to our help desk.
+
+B. Information Collected Automatically
+Network and Device Identifiers: IP addresses, browser engine and version, operating system details, device model, referral URLs, language settings, and internet service provider (ISP).
+Usage Telemetry: Pages visited, duration of page visits, clickstream logs, scroll depth, interaction with movie cards, trailer playback initiation rates, and navigation paths.
+Cookies and Storage Technologies: Session tokens, authentication cookies, analytics identifiers, and local web storage.
+
+3.2 Purposes of Data Processing
+We process collected data under legitimate business interests, contractual necessity, and user consent to:
+Authenticate your account identity, preserve login states, and provide secure account administration.
+Calculate personalized film recommendations, genre match percentages, and "where to watch" service filters.
+Calculate platform-wide rating averages, weighted Bayesian movie scores, and trending film statistics.
+Prevent automated review manipulation, detect bot networks, and defend against Distributed Denial of Service (DDoS) attacks.
+Deliver platform updates, system notifications, security alerts, and transactional messages.
+Fulfill legal, tax, accounting, and regulatory compliance obligations.
+
+3.3 Data Sharing and Third-Party Disclosures
+We do not sell, rent, lease, or monetize your identifiable personal data. We disclose information only to the following entities:
+Infrastructure and Cloud Service Providers: Third-party cloud providers, database hosting facilities, content delivery networks (CDNs), and transactional email operators (e.g., AWS, Cloudflare) that handle operational data under strict data processing agreements.
+Analytics Providers: Services that evaluate platform metrics and user interaction trends using aggregated or pseudonymized identifiers.
+Streaming and Affiliate Partners: If you click an external link to rent, purchase, or stream a film, referral identifiers may be transmitted to authenticate the affiliate transaction.
+Legal and Regulatory Authorities: Where mandated by valid subpoenas, search warrants, court orders, or applicable administrative laws, or when necessary to protect the life, safety, or legal rights of our users or the general public.
+
+3.4 Data Retention, Account Deletion, and Privacy Rights
+We retain personal data for as long as your account remains active or as required to fulfill the objectives specified in this Policy. You may request account deactivation and complete data erasure by visiting your Account Settings or emailing [privacy@yourdomain.com].
+Upon verified receipt of an account deletion request:
+Your username, email address, password hash, personal profile details, and private watchlists will be permanently purged or irreversibly anonymized within 30 days.
+Publicly visible movie reviews may be retained with all identifying personal information stripped, attributed instead to an anonymous or deactivated user account to preserve historical database integrity, unless full deletion is mandated by applicable law.
+Backups and security logs containing personal data will be completely overwritten according to standard archival rotation cycles, not exceeding 90 days.
+Under regional privacy frameworks (such as GDPR in the EU/UK, CCPA/CPRA in California, and similar national frameworks), you hold specific rights to access your data, request portable copies of your movie activity, demand rectifications, restrict certain processing operations, and withdraw prior consent without prejudice.
+
+4. DMCA and Copyright Enforcement Policy
+
+4.1 Safe Harbor and Takedown Framework
+[Website Name] operates in strict accordance with the Digital Millennium Copyright Act of 1998 (17 U.S.C. § 512) and international intellectual property directives. We respect the proprietary rights of film studios, production entities, visual artists, and fellow content publishers.
+If you are a copyright owner or an authorized representative thereof and believe that material available on or linked through our Site infringes your copyright, you may submit a formal notification of claimed infringement to our Designated Copyright Agent.
+
+4.2 Required Elements of a Formal Notice
+To be legally operative, your DMCA Notification must be submitted in writing and contain all of the following elements:
+A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+Clear identification of the copyrighted work claimed to have been infringed (e.g., specific film title, production company, copyright registration certificate number, or reference URL).
+Identification of the material on our Site claimed to be infringing, along with direct URL links to the specific web pages, comments, or images where the material is situated, in sufficient detail for us to locate it.
+Information reasonably sufficient to permit us to contact you, including legal name, physical mailing address, telephone number, and direct email address.
+A statement that you have a good-faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.
+A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+Designated Copyright Agent Contact:
+Attention: DMCA Compliance & Legal Department
+Entity: [Website Name / Company Legal Name]
+Mailing Address: [Full Physical Street Address, City, State/Province, Country]
+Email: [dmca@yourdomain.com]
+Incomplete notifications or notices lacking direct asset URLs cannot be processed.
+
+4.3 Counter-Notification Procedures
+If content you posted on the Site (such as a review, screenshot analysis, or custom artwork) was removed or disabled as a result of a DMCA Notice and you contend that this was done due to mistake, misidentification, or covered under fair use doctrines, you may transmit a written Counter-Notification to our Designated Agent.
+The Counter-Notification must satisfy the statutory criteria of 17 U.S.C. § 512(g)(3) by including:
+Your physical or electronic signature.
+Identification of the material that was removed or to which access was disabled, and the location where the material appeared before removal.
+A statement under penalty of perjury that you have a good-faith belief that the material was removed or disabled as a result of mistake or misidentification.
+Your legal name, physical address, and telephone number, along with a statement consenting to the jurisdiction of the Federal District Court for the judicial district in which your address is located (or if outside the United States, for any judicial district in which the service provider may be found), and that you will accept service of process from the person who submitted the original notification.
+Upon receipt of a valid Counter-Notification, we will deliver a copy to the original complaining party. If the copyright holder does not file a court action seeking a restraining order against the content within 10 to 14 business days, we may restore the removed content at our discretion.
+
+4.4 Repeat Infringer Policy
+In accordance with Section 512(i)(1)(A) of the DMCA, [Website Name] maintains and enforces an operational policy to terminate, under appropriate circumstances, the user accounts of subscribers or account holders who are determined to be repeat infringers.
+
+5. Community, Review Manipulation, and Spoiler Guidelines
+
+5.1 Movie Review Standards and Review Bombing Protections
+We provide a forum for film evaluation, cultural critique, and cinephile dialogue. To preserve the reliability of our platform scores and maintain civil discourse, the following actions are strictly prohibited:
+Review Bombing and Sentiment Manipulation: Organizing, coordinating, participating in, or automating mass submissions of extreme positive or negative ratings designed to artificially skew a film's public average for non-cinematic, political, retaliatory, or ideological motivations.
+Commercial Astroturfing: Submitting paid ratings, manufactured reviews, or promotional text on behalf of film marketing agencies, distributors, or production houses without clear, prominent legal sponsorship disclosures.
+Plagiarism: Duplicating, copying, or passing off the published critical reviews, essays, or commentary of film critics, journalists, or other users as your own.
+Incoherent or Low-Effort Spam: Submitting reviews consisting of gibberish, single characters, repeated characters, affiliate links, or content that contains no critique or evaluation of the title.
+We employ algorithmic anomaly detection and human moderation to identify sudden, inorganic rating spikes. When review bombing is detected on a title, we reserve the right to freeze incoming ratings, flag suspect batches, or recalculate public averages using historical and trusted user weights.
+
+5.2 Harassment and Protected Speech
+We protect critical film analysis, negative commentary, and challenging opinions about creative works. However, we do not tolerate abuse targeted at individuals. The following content will result in immediate removal and potential account termination:
+Direct threats of physical violence, incitement of self-harm, stalking, or doxxing directed at users, actors, directors, screenwriters, producers, or film critics.
+Hate speech, harassment, slurs, or degradation based on race, ethnicity, nationality, religion, disability, gender, gender identity, or sexual orientation.
+Distributing intimate, non-consensual personal imagery, unauthorized private addresses, or confidential contact information of industry professionals or fellow community members.
+
+5.3 Enforceable Spoiler Tagging Policy
+To protect viewers from uninvited plot reveals:
+Any discussion describing key narrative turning points, major twists, character deaths, unexpected cameos, climax details, or endings must be concealed using the platform's spoiler tools.
+Reviews containing plot reveals must be submitted with the explicit "Contains Spoilers" toggle activated.
+Discussion thread posts, replies, and list notes must enclose revelatory text within platform markdown tags (e.g., [spoiler]revealed text[/spoiler]).
+The titles of user reviews, public watchlists, custom list collections, and forum thread headers must never contain spoilers, regardless of age of the film.
+A strict 90-day spoiler moratorium applies to all newly released theatrical, broadcast, and streaming films, commencing on the date of public domestic or international release (whichever occurs first). Unmarked spoilers posted during this window are subject to swift deletion and account warnings.
+
+5.4 Piracy Prohibition
+[Website Name] enforces an absolute zero-tolerance policy regarding copyright infringement and illicit media distribution. You may not post, publish, solicit, or share:
+Direct links, mirrors, or web addresses pointing to unauthorized, illegal film streaming or downloading platforms.
+Torrent files, BitTorrent tracking URLs, magnet links, or peer-to-peer download pointers.
+Guides, scripts, or instructions detailing how to bypass geo-restrictions, digital rights management (DRM) protections, or subscription paywalls of legitimate streaming platforms.
+Any post containing piracy links will be purged instantly, and the responsible account will face immediate, permanent termination.
+
+6. Developer API and Automated Access Terms
+
+6.1 API Access and Registration
+If [Website Name] provides application programming interfaces ("APIs"), developer tokens, or data access keys for software developers, catalog researchers, or partner platforms, your access to such endpoints is governed by these Terms. You must register an official developer profile and obtain unique authentication credentials to access our API endpoints.
+
+6.2 License Grant and Usage Restrictions
+We grant you a limited, revocable, non-exclusive, non-sublicensable, non-transferable license to access our API solely to build applications, integrations, widgets, or academic research projects in compliance with our documentation.
+You agree not to:
+Expose, sell, lease, sublicense, syndicate, or commercially distribute raw API data feeds to third parties.
+Exceed platform rate limits, bypass throttles, or generate request bursts that impair infrastructure performance or operational stability.
+Use our API to construct a competing film catalog, clone service, or standalone movie metadata index.
+Cache film data, posters, or user reviews locally for longer than thirty (30) days without performing a synchronization refresh against our live API endpoints.
+Misrepresent your product as an official application built or endorsed by [Website Name].
+
+6.3 Mandatory Attribution
+Any website, desktop application, mobile client, or service utilizing our API or display assets must render clear and prominent attribution. You must include the phrase "Powered by [Website Name]" alongside our official logo on all screens, pages, or search interfaces where catalog data, ratings, or film information originating from our service are rendered.
+
+6.4 API Revocation and Modifications
+We reserve the right to alter, update, deprecate, throttle, or terminate API access, endpoints, data fields, or token permissions at any time, for any reason, with or without prior notice.
+
+7. Affiliate Marketing, Ticketing, and Commercial Disclosures
+
+7.1 Affiliate Links and Commissions
+The Site participates in affiliate marketing programs designed to provide a means for platforms to earn referral fees. Some outbound links leading to external streaming services, video-on-demand digital storefronts (such as Apple TV, Google Play Movies, Amazon Prime Video), physical media retailers (such as Blu-ray/4K disc vendors), and cinema ticketing agencies (such as Fandango, Atom Tickets) contain embedded affiliate tracking codes.
+If you click through an affiliate link and subsequently rent a movie, purchase a physical copy, subscribe to a streaming provider, or buy cinema tickets, [Website Name] may receive a monetary commission at no additional cost to you.
+
+7.2 Editorial Independence
+Our editorial reviews, staff recommendations, algorithms, trending lists, and user score calculations operate with strict independence. We do not alter, artificially inflate, or curate movie scores, ratings, or placement to favor films, studios, or platforms with which we maintain affiliate or commercial relationships.
+
+7.3 Cinema Ticketing Disclaimers
+Any cinema showtimes, theater seating maps, ticket reservations, or transactional bookings accessible through or directed from the Site are managed directly by external theater operators, booking engines, or third-party ticketing vendors. We do not process movie ticket payments, issue refunds, or handle seating disputes. Any transaction issues must be resolved directly with the corresponding cinema or ticket merchant.
+
+8. Cookie and Tracking Technology Policy
+
+8.1 Definition and Deployment
+Cookies are small text files, device fingerprints, or local browser storage keys placed on your computer, tablet, or smartphone when you load our web pages. They permit web applications to remember your session, track preferences, and collect analytical data.
+
+8.2 Categories of Cookies Employed
+We use the following classifications of tracking technologies:
+Strictly Necessary Cookies: Essential for fundamental website navigation, user identity verification, session persistence, and Cross-Site Request Forgery (CSRF) mitigation. The Site cannot function properly without these cookies, and they cannot be disabled in platform settings.
+Functionality and Preference Cookies: Retain your platform preferences across visits, such as dark mode or light mode themes, default sort orders for filmographies (e.g., release date vs. user score), preferred streaming region or country filters, and subtitle toggles.
+Analytics and Performance Cookies: Gather anonymous telemetry regarding platform usage, such as which movie pages receive the highest traffic, average search query latency, and bounce rates. This information helps us optimize server caching, improve navigation, and identify technical bottlenecks.
+Advertising and Targeting Cookies: Deployed by authorized third-party ad networks and measurement partners to deliver relevant display ads and assess the effectiveness of studio marketing campaigns. These cookies track browsing behavior across different websites over time.
+
+8.3 Cookie Controls and Opt-Outs
+You have the right to accept, configure, or reject non-essential cookies. You can update your preferences at any time through our on-site Cookie Consent Settings banner.
+Alternatively, you can configure your web browser settings to block or alert you about cookies. Note that disabling certain functional or necessary cookies may cause visual glitches, session termination, or broken navigation across our film catalog and personalized watchlists.
+
+9. Governing Law, Dispute Resolution, and Arbitration
+
+9.1 Applicable Law
+These Terms, along with all associated policies, rights, and obligations, shall be governed by and construed in accordance with the substantive laws of [State/Country/Jurisdiction], without regard to its conflict of law principles. The United Nations Convention on Contracts for the International Sale of Goods shall not apply.
+
+9.2 Informal Dispute Resolution
+Prior to initiating any formal legal claim, arbitration, or proceeding, you agree to contact our legal team at [legal@yourdomain.com] with a written description of the dispute, your account username, and your requested resolution. Both parties agree to use good-faith efforts to resolve the matter informally within forty-five (45) business days from the date the written notice is received.
+
+9.3 Binding Arbitration and Class Action Waiver
+If an informal resolution cannot be achieved:
+Any dispute, claim, or controversy arising out of or relating to these Terms, the breach thereof, or the use of the Site shall be settled by binding individual arbitration administered by an established arbitration body (such as the American Arbitration Association or equivalent regional arbitration institution) in accordance with its Commercial Arbitration Rules.
+You and [Website Name] agree that each party may bring claims against the other only in an individual capacity and not as a plaintiff, class representative, or class member in any purported class, consolidated, or representative proceeding.
+The arbitrator shall not consolidate more than one person's claims and shall not preside over any form of representative or class proceeding.
+Judgment on the award rendered by the arbitrator may be entered in any court having jurisdiction thereof.
+
+10. Modifications, Severability, and Contact Information
+
+10.1 Updates to Policies
+We reserve the right to amend, revise, or replace any portion of these policies at any time. When material modifications are published, we will update the "Last Updated" date at the top of the relevant section and, where appropriate, deliver a notification banner across the Site or send an alert to your registered email address. Your continued use of the Site following the posting of revised policies constitutes your binding acceptance of the changes.
+
+10.2 Severability and Entire Agreement
+If any provision or clause of these policies is held by a court or arbitrator of competent jurisdiction to be invalid, illegal, or unenforceable, that provision shall be severed or limited to the minimum extent necessary, and the remaining provisions shall continue in full force and effect. These Terms constitute the entire agreement between you and [Website Name] regarding your use of the Site.
+
+10.3 Contact Information
+For inquiries, support requests, or formal notifications regarding our legal policies, reach us through the following channels:
+General Legal Inquiries: [legal@yourdomain.com]
+Privacy & Data Protection Officer: [privacy@yourdomain.com]
+DMCA & Copyright Enforcement: [dmca@yourdomain.com]
+Registered Postal Address: [Company Legal Name], [Street Address], [City, State/Province, Postal Code], [Country]

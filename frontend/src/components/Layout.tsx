@@ -110,6 +110,18 @@ export function Layout() {
       </main>
 
       <footer className="border-t border-ink-800 py-8 text-center text-xs text-ink-500">
+        <nav className="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <Link to="/help" className="transition-colors hover:text-ink-100">Help centre</Link>
+          <Link to="/help#ticket-cancellation-and-refund-schedule" className="transition-colors hover:text-ink-100">
+            Refunds
+          </Link>
+          <Link to="/help#accessibility-and-ada-compliance" className="transition-colors hover:text-ink-100">
+            Accessibility
+          </Link>
+          <Link to="/cinemas" className="transition-colors hover:text-ink-100">Cinemas</Link>
+          <Link to="/terms" className="transition-colors hover:text-ink-100">Terms &amp; policies</Link>
+          <Link to="/terms#3-privacy-policy" className="transition-colors hover:text-ink-100">Privacy</Link>
+        </nav>
         vijju.booking — a movie ticketing reference implementation. Payments are simulated.
       </footer>
 

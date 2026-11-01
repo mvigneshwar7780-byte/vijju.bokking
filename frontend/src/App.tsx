@@ -11,6 +11,8 @@ import { Ticket } from '@/pages/Ticket'
 import { MyBookings } from '@/pages/MyBookings'
 import { Login } from '@/pages/Login'
 import { Cinemas } from '@/pages/Cinemas'
+import { HelpCentre } from '@/pages/Help'
+import { Terms } from '@/pages/Terms'
 import { CinemaDetail } from '@/pages/CinemaDetail'
 import { OperatorLayout } from '@/pages/operator/OperatorLayout'
 import { OperatorScreens } from '@/pages/operator/Screens'
@@ -51,6 +53,8 @@ export default function App() {
             <Route path="pay/:bookingId" element={<Payment />} />
             <Route path="tickets/:bookingId" element={<Ticket />} />
             <Route path="cinemas" element={<Cinemas />} />
+            <Route path="help" element={<HelpCentre />} />
+            <Route path="terms" element={<Terms />} />
             <Route path="cinemas/:cinemaId" element={<CinemaDetail />} />
             <Route path="bookings" element={<MyBookings />} />
 

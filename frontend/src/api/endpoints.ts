@@ -3,7 +3,7 @@ import { api, sessionKey } from './client'
 import type {
   AuthResponse, Booking, CancellationQuote, Cinema, CinemaMovies, City, FnbItem, Genre,
   Hold, Language, LayoutPreview, LayoutRowInput, MovieCard, MovieDetail,
-  AssistantReply, MoviePriceComparison, OccupancyReport, OperatorBooking, Page, PriceQuote,
+  AssistantReply, HelpCentreData, LegalDocument, MoviePriceComparison, OccupancyReport, OperatorBooking, Page, PriceQuote,
   RevenueReport, ScreenAdmin, SeatCategoryAdmin, SeatMap, ShowAdmin, ShowSummary,
   ShowtimeBoard, StartPayment, User, UserAdmin,
 } from './types'
@@ -32,6 +32,11 @@ export const Catalog = {
 export const Assistant = {
   ask: (question: string) =>
     api.post<AssistantReply>('/assistant/ask', { question }).then((r) => r.data),
+}
+
+export const Help = {
+  sections: () => api.get<HelpCentreData>('/help/sections').then((r) => r.data),
+  terms: () => api.get<LegalDocument>('/help/terms').then((r) => r.data),
 }
 
 export const Showtimes = {

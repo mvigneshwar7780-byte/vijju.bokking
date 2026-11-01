@@ -29,7 +29,7 @@ db = SQLDatabase.from_uri(DATABASE_URI)
 llm = ChatGoogleGenerativeAI(
     model="gemini-3.6-flash",
    # google_api_key= os.getenv("AQ.Ab8RN6K-a5-9bsaLULrqyNdbktWN8PWoonDKyZg1II5Bdv3gbw"),
-   #google_api_key= "AQ.Ab8RN6K-a5-9bsaLULrqyNdbktWN8PWoonDKyZg1II5Bdv3gbw",
+   google_api_key= "AQ.Ab8RN6K-a5-9bsaLULrqyNdbktWN8PWoonDKyZg1II5Bdv3gbw",
     temperature=0
 )
 

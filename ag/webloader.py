@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import requests
 
-#Google_API_Key = "AQ.Ab8RN6K-a5-9bsaLULrqyNdbktWN8PWoonDKyZg1II5Bdv3gbw"
+Google_API_Key = "AQ.Ab8RN6K-a5-9bsaLULrqyNdbktWN8PWoonDKyZg1II5Bdv3gbw"
 llm = ChatGoogleGenerativeAI(model = "gemini-3.6-flash", temperature = 0.2, google_api_key = Google_API_Key)
 
 prompt_template = ChatPromptTemplate.from_messages(

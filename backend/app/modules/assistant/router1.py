@@ -6,6 +6,7 @@ router = APIRouter(prefix="/assistant", tags=["assistant"])
 
 class AskRequest(BaseModel):
     question: str
+    answer: str | None = None
 
 GROUNDED_THRESHOLD = 0.8   # tune by printing distances for good/bad questions
 

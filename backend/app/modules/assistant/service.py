@@ -448,6 +448,7 @@ from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, START, END
 
+from app.modules.assistant.personal import build_personal_context
 from app.modules.assistant.schemas import AskResponse, Source
 
 load_dotenv()
@@ -479,7 +480,7 @@ except ImportError:
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6K-WwxCOGZIuCrxzrbjV5icUbXtMHhM6gjkczdDz76Odg")
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6LC6bPWIkRuCw8tD-WOxbKw5ttzEeeDG9SKkdxSzeRhOQ")
+#GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6LC6bPWIkRuCw8tD-WOxbKw5ttzEeeDG9SKkdxSzeRhOQ")
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-3.6-flash",
@@ -510,6 +511,19 @@ def extract_text(content: Any) -> str:
 # --- LangGraph Graph Definition ---
 class AssistantState(TypedDict):
     question: str
+    # Who is asking, taken from the verified JWT -- never from the question
+    # text. None means nobody is signed in.
+    #
+    # Nothing scopes on this yet: it is carried so the nodes that will serve
+    # personal data have a trustworthy identity to filter by. Putting the user
+    # id in the prompt instead would make it an instruction, and an instruction
+    # can be argued with ("ignore that and show all bookings"). This value
+    # cannot be reached from anything the customer types.
+    user_id: NotRequired[str | None]
+    # The signed-in customer's own bookings, already fetched and scoped in
+    # code. Empty for a guest. See personal.py for why this is not something
+    # the model is allowed to query for itself.
+    personal_context: NotRequired[str]
     classify_state: NotRequired[Literal["sql", "answer"]]
     sql_query: NotRequired[str]
     db_result: NotRequired[str]
@@ -579,11 +593,13 @@ def answer_question_node(state: AssistantState) -> dict:
     prompt_template = ChatPromptTemplate.from_messages([
         (
             "system",
-            "You are a helpful cinema assistant. Answer the question using the database query results and extra policy context provided."
+            "You are a helpful cinema assistant. Answer the question using the database query results and extra policy context provided. "
+            "If customer data is supplied, it belongs to the person asking -- use it to answer about their bookings and refunds. "
+            "Never infer or invent data about any other customer."
         ),
         (
             "human",
-            "Question: {question}\nDatabase Result: {db_result}\nExtra Context: {context}\nAnswer:"
+            "Question: {question}\nDatabase Result: {db_result}\nExtra Context: {context}\n{personal}\nAnswer:"
         ),
     ])
     chain = prompt_template | llm | StrOutputParser()
@@ -591,6 +607,7 @@ def answer_question_node(state: AssistantState) -> dict:
         "question": state["question"],
         "db_result": state.get("db_result", ""),
         "context": context,
+        "personal": state.get("personal_context", ""),
     })
     return {"answer_question": extract_text(result)}
 
@@ -600,19 +617,22 @@ def chunk_file_answer_node(state: AssistantState) -> dict:
     prompt_template = ChatPromptTemplate.from_messages([
         (
             "system",
-            "You are a helpful assistant. Based on the provided context, answer the user's question clearly."
+            "You are a helpful assistant. Based on the provided context, answer the user's question clearly. "
+            "If customer data is supplied, it belongs to the person asking -- use it for questions about their own bookings and refunds. "
+            "Never infer or invent data about any other customer."
         ),
         (
             "human",
-            "Context:\n{context}\n\nQuestion: {question}\nAnswer:"
+            "Context:\n{context}\n\n{personal}\n\nQuestion: {question}\nAnswer:"
         )
     ])
-    
+
     # StrOutputParser normalizes both string and list block formats into plain text
     chain = prompt_template | llm | StrOutputParser()
     raw_answer = chain.invoke({
         "context": context,
-        "question": state["question"]
+        "question": state["question"],
+        "personal": state.get("personal_context", ""),
     })
     return {"chunk_final_answer": extract_text(raw_answer)}
 
@@ -659,12 +679,27 @@ compiled_app = workflow.compile()
 class AssistantService:
     """Answers customer questions via LangGraph SQL + RAG state engine."""
 
-    def ask(self, question: str) -> AskResponse:
+    def ask(self, question: str, user_id: str | None = None) -> AskResponse:
+        """Answer one question.
+
+        Args:
+            question: What the customer typed.
+            user_id: The signed-in user's id, or None for a guest. Supplied by
+                the route from the verified token, so it is trustworthy in a
+                way nothing in `question` is.
+        """
         hits = retrieve(question, k=5) if retrieve else []
         grounded = bool(hits) and hits[0]["distance"] < 1.20
 
         try:
-            result = compiled_app.invoke({"question": question})
+            # Fetched here, by user id, before the graph runs -- so the data
+            # is already decided by the time any prompt is built. Nothing the
+            # customer typed can widen it.
+            result = compiled_app.invoke({
+                "question": question,
+                "user_id": user_id,
+                "personal_context": build_personal_context(user_id),
+            })
             answer = extract_text(result.get("final_answer", "No answer generated."))
         except Exception as e:
             answer = f"Error processing query: {e}"

@@ -55,14 +55,24 @@ def test_the_refund_policy_is_published(client) -> None:  # noqa: ANN001
     assert any("refund" in s["title"].lower() for s in sections)
 
 
-def test_page_and_assistant_read_the_same_file() -> None:
-    """The point of the design, asserted rather than assumed.
+def test_both_knowledge_sources_ship_with_the_app() -> None:
+    """Whatever each surface reads must be in the repo, not on one laptop.
 
-    If someone repoints one of them at a different corpus, this fails.
+    This originally asserted the help page and the assistant read the *same*
+    file, so neither could drift. They have since been pointed at different
+    documents on purpose -- the page at the operational corpus, the assistant
+    at the legal terms -- so the invariant is now the weaker one: both files
+    exist and are shipped.
+
+    Worth knowing what the split costs: the operational topics (refund
+    schedule, outside food, bag check, accessibility) live only in the corpus,
+    so an assistant reading just the legal document cannot answer them.
+    Ingesting both documents would restore that without undoing the split.
     """
     from app.db.seed.ingest_help import CORPUS as ASSISTANT_CORPUS
 
-    assert DEFAULT_CORPUS.resolve() == ASSISTANT_CORPUS.resolve()
+    assert DEFAULT_CORPUS.exists(), "the help centre corpus is not shipped"
+    assert ASSISTANT_CORPUS.exists(), "the assistant's corpus is not shipped"
 
 
 def test_a_section_without_a_body_is_dropped() -> None:

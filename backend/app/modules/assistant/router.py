@@ -119,12 +119,26 @@ def ask(req: AskRequest) :#-> AskResponse:
 
 
 from fastapi import APIRouter
+
+from app.core.deps import OptionalUser
 from app.modules.assistant.schemas import AskRequest, AskResponse
 from app.modules.assistant.service import build_service
 
 router = APIRouter(prefix="/assistant", tags=["assistant"])
 
+
 @router.post("/ask", response_model=AskResponse)
-def ask(payload: AskRequest) -> AskResponse:
-    """Answer customer questions using the LangGraph support engine."""
-    return build_service().ask(payload.question)
+def ask(payload: AskRequest, user: OptionalUser) -> AskResponse:
+    """Answer customer questions using the LangGraph support engine.
+
+    `OptionalUser` keeps the endpoint open to guests -- refund windows and
+    format prices are asked before anyone has an account -- while identifying
+    the caller when a token is present.
+
+    The id comes from the decoded token, not from anything the customer typed,
+    which is the only reason it can be trusted to scope data later.
+    """
+    return build_service().ask(
+        payload.question,
+        user_id=str(user.id) if user else None,
+    )

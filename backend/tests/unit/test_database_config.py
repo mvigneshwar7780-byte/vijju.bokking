@@ -21,6 +21,12 @@ def _settings(**overrides: object) -> Settings:
     `_env_file=None` matters: without it these would read the developer's real
     `.env`, so a test asserting a default would pass or fail depending on which
     database that machine happens to be pointed at.
+
+    It is not sufficient on its own. `load_dotenv()` runs when the assistant
+    module is imported, which copies `.env` into `os.environ` -- and
+    pydantic-settings reads the process environment regardless of `_env_file`.
+    So every field these tests assert a *default* for has to be pinned here
+    explicitly, or the result depends on import order.
     """
     base = {
         "postgres_host": "db.example.com",
@@ -28,6 +34,9 @@ def _settings(**overrides: object) -> Settings:
         "postgres_user": "avnadmin",
         "postgres_password": "s3cret",
         "postgres_db": "defaultdb",
+        # Pinned to its default so "not configured" means that, rather than
+        # whatever the developer's .env leaked into the environment.
+        "postgres_sslrootcert": "",
     }
     return Settings(_env_file=None, **{**base, **overrides})  # type: ignore[arg-type]
 

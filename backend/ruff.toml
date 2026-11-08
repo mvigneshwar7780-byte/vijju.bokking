@@ -25,4 +25,5 @@ exclude = [
 # successive drafts. Scoped to the assistant so the rules keep working
 # everywhere else; remove these once the drafts are cleaned up.
 "app/modules/assistant/router.py" = ["E402", "F401", "F811"]
-"app/modules/assistant/service.py" = ["F401"]
+"app/modules/assistant/service.py" = ["F401", "E402"]
+"app/modules/assistant/schemas.py" = ["E402"]

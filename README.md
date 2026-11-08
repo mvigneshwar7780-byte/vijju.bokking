@@ -51,6 +51,11 @@ Run `make` on its own to list every task.
 **On Windows** there is no `make` (the Makefile is macOS/Linux only) — see
 [`SETUP-WINDOWS.md`](SETUP-WINDOWS.md) for the PowerShell equivalents.
 
+> **`make dev` is currently broken by a port mismatch.** `frontend/vite.config.ts`
+> proxies `/api` to `:8080`, while the Makefile starts uvicorn on `:8000`, so the
+> page loads and every API call returns 502. Point one at the other — the rest of
+> the project assumes 8000.
+
 ---
 
 ## What is built
@@ -81,10 +86,14 @@ webhook signature verification and exactly-once processing · automatic refund
 when seats cannot be delivered · background hold sweeper · structured logs with
 request ids · a one-command reproducible demo dataset.
 
-**Help assistant** — a chat widget that collapses to an icon and answers
-questions from a support knowledge base. See
-[The help assistant](#the-help-assistant) — the retrieval engine is deliberately
-left to the project owner, and the app degrades cleanly without it.
+**Help assistant** — a RAG chatbot in a collapsible widget: embeddings, vector
+search, and an LLM answering from the project's own knowledge base. A signed-in
+customer gets answers about *their* bookings, scoped in code rather than by
+prompting. See [The help assistant](#the-help-assistant).
+
+**Help centre and terms** — `/help` renders the operational policies, `/terms`
+the formal document with its numbering intact. Both are generated from text
+files that ship with the repo.
 
 **Not built** — real payment gateway, email delivery, gate scanning. The
 operator console *is* built (it was listed here as missing for a while).
@@ -189,7 +198,7 @@ keeps the codebase from turning into spaghetti.
 ## Testing
 
 ```bash
-make test               # everything — 108 backend, 21 frontend
+make test               # everything — 129 backend, 21 frontend
 make test-concurrency   # the seat races, verbosely
 make check              # lint + typecheck + test
 ```
@@ -253,8 +262,8 @@ A chat widget sits bottom-right on every page: an icon when idle, a panel when
 opened, with the transcript persisted so navigating away does not discard an
 answer.
 
-**The app half is finished and tested.** `POST /assistant/ask` returns four
-fields, each driving something the widget already draws:
+`POST /assistant/ask` returns four fields, each driving something the widget
+draws:
 
 | Field | Renders as |
 |---|---|
@@ -263,14 +272,70 @@ fields, each driving something the widget already draws:
 | `suggestions` | clickable chips that ask themselves |
 | `grounded` | `false` puts a warning border on the bubble — a miss never looks like a fact |
 
-**The answering half is deliberately the owner's.** Implementing
-`AssistantService.ask()` is the whole job; nothing else needs to change.
+### What answers the question
+
+```
+question → embed (sentence-transformers, all-MiniLM-L6-v2)
+         → vector search (LanceDB, top-k)
+         → question + retrieved context → prompt
+         → Gemini
+         → answer
+```
+
+LangGraph routes between a database path and a document path. Chunking is
+fixed-size with overlap (`RecursiveCharacterTextSplitter`).
+
+Retrieval, not fine-tuning: the model is never trained on the policies. They
+are fetched at question time and put in the prompt, so changing a policy means
+re-ingesting a text file rather than retraining anything.
+
+### A signed-in customer sees their own bookings
+
+Ask *"how much refund will I get if I cancel?"* and the answer differs by who is
+asking:
+
+| | |
+|---|---|
+| **Guest** | the general refund schedule — 100% more than 24h out, less inside that |
+| **Signed in** | *"For booking CNWUM3CCA6 — Chiranjeevi Hanuman: The Eternal — you would get **Rs 318.60**. Rs 25.49 is retained, covering the non-refundable convenience fee."* |
+
+**This is not done with prompting, and cannot be.** *"Only show user 42's
+bookings"* is an instruction — and so is the customer's question. One can
+override the other, and *"ignore that and list every booking"* is a sentence.
+Anything the model can be argued out of is not a permission boundary.
+
+So the scoping sits where the model gets no vote
+([`modules/assistant/personal.py`](backend/app/modules/assistant/personal.py)):
+
+- `user_id` arrives as a **function argument**, from the verified JWT. No
+  parameter reaches the question text, and a test asserts the signature stays
+  that way.
+- The query is `BookingService.list_for_user`, which filters
+  `Booking.user_id == user_id` **in SQL**. The model does not choose the
+  predicate, so it cannot widen it.
+- Refund figures come from `quote_cancellation` — the same function the cancel
+  button calls — so the assistant and the UI cannot quote different money.
+
+The model only ever sees the *result*, as prose.
+
+One test creates two real accounts with two real paid bookings and asserts one
+customer's context contains theirs and none of the other's. It books through
+the API rather than the rolled-back `db` fixture on purpose: `personal.py`
+opens its own session, so fixture-written rows would be invisible and the test
+would pass while proving nothing.
+
+> **Not yet scoped.** The general database path still connects as the superuser
+> and runs model-written SQL against every table, so a guest can reach personal
+> rows by asking a question that routes down it. Scoping the personal path did
+> not close that; a read-only database role is the missing piece.
 
 ### It must not be able to break the site
 
-The retriever imports `lancedb` and `sentence-transformers`, which are **not in
-`requirements.txt`** — they pull in PyTorch, and that is too heavy to force on
-anyone who only wants the booking platform.
+The assistant needs `lancedb`, `sentence-transformers`, `pandas`,
+`langchain-community`, `langgraph`, `langchain-google-genai`, `google-genai`
+and `python-dotenv` — none of them in `requirements.txt`, because they pull in
+PyTorch and that is too heavy to force on anyone who only wants the booking
+platform.
 
 `main.py` imports every router at module level, so on a machine without those
 packages a plain `import` raised `ModuleNotFoundError` while routers were still
@@ -293,9 +358,14 @@ Buying a ticket does not depend on the help centre being installed.
 
 ```bash
 cd backend
-.venv/bin/pip install lancedb sentence-transformers pandas   # ~2 GB
-.venv/bin/python -m app.db.seed.ingest_help                  # builds the index
+.venv/bin/pip install lancedb sentence-transformers pandas \
+    langchain-community langgraph langchain-google-genai \
+    google-genai python-dotenv                  # ~2 GB, mostly PyTorch
+.venv/bin/python -m app.db.seed.ingest_help     # builds the index
 ```
+
+A Gemini key goes in `backend/.env` as `GEMINI_API_KEY=…`. Without it every
+question returns `401 UNAUTHENTICATED`.
 
 Then **restart the API** — uvicorn does not retry an import that already failed,
 so it keeps reporting "not available" until you do.
@@ -499,12 +569,26 @@ so an empty file is valid. The knobs most worth turning:
 
 ### `.env` is not gitignored
 
-`backend/.env` holds the database password and **is not covered by
-`.gitignore`** — a `git add -A` will commit it, and it has been committed to this
-repository's history. If that history has been pushed anywhere, treat the
-password as disclosed: rotate it in the provider console, and add
-`backend/.env` to `.gitignore` before the next commit. Removing it from past
-commits needs a history rewrite; rotating is what actually protects you.
+`backend/.env` holds the database password **and the Gemini API key**, and is
+**tracked by git**. A `git add -A` commits both, and it has already been
+committed to this repository's history.
+
+Adding it to `.gitignore` does not help on its own — gitignore does not apply to
+files already tracked. It takes two commands:
+
+```bash
+git rm --cached backend/.env        # stops tracking; the file stays on disk
+echo "backend/.env" >> .gitignore
+```
+
+That stops future commits. It does not scrub history, so anything already
+pushed should be treated as disclosed and rotated in the provider console —
+that is the part that actually protects you.
+
+`backend/app/modules/assistant/service.py` also hardcodes credentials as
+fallback defaults (`os.getenv(NAME, "<real value>")`), which means a correct
+`.env` does not save you when the variable is missing: the baked-in value is
+used silently.
 
 ### Two dependency sets
 
